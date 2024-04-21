@@ -11,12 +11,17 @@ type Definition = {
   };
 };
 
+type Theme = {
+  name: string;
+  category: string;
+};
+
 type BootConfig = {
   namespace: string;
   collections: {
-    themes?: string[];
+    themes?: Theme[];
     definitions?: Definition[];
   };
 };
 
-export { BootConfig, Definition };
+export { BootConfig, Definition, Theme };

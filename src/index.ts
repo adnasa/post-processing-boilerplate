@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import path from 'path';
 import { mapValues, zipToObject } from 'radash';
 import * as yaml from 'yaml';
-import { BootConfig, Definition } from './types/boot-config';
+import { BootConfig, Definition, Theme } from './types/boot-config';
 import {
   lrsToCollectionString,
   toCollectionName,
@@ -50,19 +50,22 @@ const authorCollection = (definition: Definition) => {
 };
 
 const createThemes = (themes: BootConfig['collections']['themes']) => {
-  const themeDefinitions = zipToObject(themes ?? [], (theme: string) => ({
-    name: theme,
-    prefix: 'theme',
-    combineType: 'intersect',
-    config: {
-      [theme]: createKeywordCriteria(theme),
-      nonRejected: {
-        criteria: 'pick',
-        operation: '!=',
-        value: -1,
+  const themeDefinitions = zipToObject(
+    themes?.map((theme) => theme.name) ?? [],
+    (themeName: string) => ({
+      name: themeName,
+      prefix: 'themeName',
+      combineType: 'intersect',
+      config: {
+        [themeName]: createKeywordCriteria(themeName),
+        nonRejected: {
+          criteria: 'pick',
+          operation: '!=',
+          value: -1,
+        },
       },
-    },
-  }));
+    })
+  );
 
   return Object.values(themeDefinitions);
 };

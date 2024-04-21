@@ -3,45 +3,84 @@ namespace: AMA
 collections:
   themes:
     # whatever stored as keywords on the image's metadata
-    - FL20
-    - FL28
-    - FL35
-    - FL37
-    - FL42
-    - FL45
-    - FL50
-    - FL58
-    - FL60
-    - FL67
-    - FL75
-    - FL85
-    - Architecture
-    - Blur
-    - CameraMode-APSCMode
-    - Cinemoments
-    - Coffee
-    - Collectables
-    - Cyberpunk
-    - Food
-    - Hike
-    - Historical
-    - Isolation
-    - Kitched
-    - MultiColors
-    - Night
-    - Palm Trees
-    - Panning
-    - Port
-    - Series
-    - Street
-    - Sunrise
-    - Sunset
-    - Tourism
-    - Unknown
-    - Urban
-    - Urban Landscape
-    - VerticalLandscape
-    - View
+    - name: FL20
+      category: Focal Length
+    - name: FL28
+      category: Focal Length
+    - name: FL35
+      category: Focal Length
+    - name: FL37
+      category: Focal Length
+    - name: FL42
+      category: Focal Length
+    - name: FL45
+      category: Focal Length
+    - name: FL50
+      category: Focal Length
+    - name: FL58
+      category: Focal Length
+    - name: FL60
+      category: Focal Length
+    - name: FL67
+      category: Focal Length
+    - name: FL75
+      category: Focal Length
+    - name: FL85
+      category: Focal Length
+    - name: Architecture
+      category: Urban
+    - name: Blur
+      category: Urban
+    - name: CameraMode-APSCMode
+      category: Urban
+    - name: Cinemoments
+      category: Urban
+    - name: Coffee
+      category: Urban
+    - name: Collectables
+      category: Urban
+    - name: Cyberpunk
+      category: Urban
+    - name: Food
+      category: Urban
+    - name: Hike
+      category: Urban
+    - name: Historical
+      category: Urban
+    - name: Isolation
+      category: Urban
+    - name: Kitched
+      category: Urban
+    - name: MultiColors
+      category: Urban
+    - name: Night
+      category: Urban
+    - name: Palm Trees
+      category: Urban
+    - name: Panning
+      category: Urban
+    - name: Port
+      category: Urban
+    - name: Series
+      category: Urban
+    - name: Street
+      category: Urban
+    - name: Sunrise
+      category: Urban
+    - name: Sunset
+      category: Urban
+    - name: Tourism
+      category: Urban
+    - name: Unknown
+      category: Urban
+    - name: Urban
+      category: Urban
+    - name: Urban Landscape
+      category: Urban
+    - name: VerticalLandscape
+      category: Urban
+    - name: View
+      category: Urban
 
   definitions:
     # CAMERAS + FILE_FORMAT
