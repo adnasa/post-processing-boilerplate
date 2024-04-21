@@ -7,7 +7,6 @@ type Definition = {
       criteria: string;
       operation: string;
       value: string | number;
-      value2?: string;
     };
   };
 };
@@ -16,6 +15,7 @@ type BootConfig = {
   namespace: string;
   collections: {
     themes?: string[];
+    definitions?: Definition[];
   };
 };
 

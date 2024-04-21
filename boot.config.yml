@@ -21,6 +21,65 @@ collections:
     - FL85
 
   definitions:
+    # PHASES
+    - name: review required
+      prefix: "phase"
+      combineType: intersect
+      config:
+        pick:
+          criteria: pick
+          operation: "=="
+          value: 0
+        labelColor:
+          criteria: labelColor
+          operation: ">="
+          value: 1
+
+    - name: export ready
+      prefix: "phase"
+      combineType: intersect
+      config:
+        rating:
+          criteria: rating
+          operation: ">="
+          value: 3
+        labelColor:
+          criteria: labelColor
+          operation: ">="
+          value: 3
+
+    - name: unmarked
+      prefix: "phase"
+      combineType: intersect
+      config:
+        pick:
+          criteria: pick
+          operation: "=="
+          value: 0
+
+    - name: marked for deletion
+      prefix: "phase"
+      combineType: intersect
+      config:
+        pick:
+          criteria: pick
+          operation: "=="
+          value: -1
+
+    - name: WIP
+      prefix: "phase"
+      combineType: intersect
+      config:
+        pick:
+          criteria: pick
+          operation: "=="
+          value: 1
+        labelColor:
+          criteria: labelColor
+          operation: "=="
+          value: 4
+    
+    # LENSES
     - name: Tamron 28-75mm F2.8
       prefix: lens
       combineType: intersect
@@ -155,60 +214,3 @@ collections:
           criteria: lens
           operation: "=="
           value: Auto-Beroflex 28mm F2.8
-
-    - name: review required
-      prefix: "phase"
-      combineType: intersect
-      config:
-        pick:
-          criteria: pick
-          operation: "=="
-          value: 0
-        labelColor:
-          criteria: labelColor
-          operation: ">="
-          value: 1
-
-    - name: export ready
-      prefix: "phase"
-      combineType: intersect
-      config:
-        rating:
-          criteria: rating
-          operation: ">="
-          value: 3
-        labelColor:
-          criteria: labelColor
-          operation: ">="
-          value: 3
-
-    - name: unmarked
-      prefix: "phase"
-      combineType: intersect
-      config:
-        pick:
-          criteria: pick
-          operation: "=="
-          value: 0
-
-    - name: marked for deletion
-      prefix: "phase"
-      combineType: intersect
-      config:
-        pick:
-          criteria: pick
-          operation: "=="
-          value: -1
-
-    - name: WIP
-      prefix: "phase"
-      combineType: intersect
-      config:
-        pick:
-          criteria: pick
-          operation: "=="
-          value: 1
-        labelColor:
-          criteria: labelColor
-          operation: "=="
-          value: 4
