@@ -2,13 +2,6 @@ namespace: AMA
 
 collections:
   themes:
-    - Multicolor
-    - Night
-    - Street
-    - Urban
-    - Palm Trees
-    - Sunrise
-    - Sunset
     - FL20
     - FL28
     - FL35
@@ -19,6 +12,25 @@ collections:
     - FL58
     - FL75
     - FL85
+    - Cinemoments
+    - Cyberpunk
+    - Architecture
+    - Isolation
+    - Historical
+    - CameraMode-APSCMode
+    - Tourism
+    - Unknown
+    - Series
+    - Port
+    - Multicolor
+    - Night
+    - Palm Trees
+    - Street
+    - Sunrise
+    - Sunset
+    - Urban
+    - Urban Landscape
+    - VerticalLandscape
 
   definitions:
     # PHASES

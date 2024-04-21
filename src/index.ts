@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import { mapValues, snake, zipToObject } from 'radash';
+import { defer, mapValues, snake, zipToObject } from 'radash';
 import * as yaml from 'yaml';
 import { BootConfig, Definition } from './types/boot-config';
 
@@ -23,15 +23,8 @@ const renderDefinitions = (definitions: Definition[]) => {
   definitions.forEach((definition) => {
     const collection = authorCollection(definition);
 
-    try {
-      fs.mkdirSync(path.join(__dirname, `../output/${definition.prefix}`));
-    } catch (e: unknown) {}
-
     fs.writeFileSync(
-      path.join(
-        __dirname,
-        `../output/${definition.prefix}/${toFileName(definition)}.lrsmcol`
-      ),
+      path.join(__dirname, `../output/${toFileName(definition)}.lrsmcol`),
       collection,
       'utf-8'
     );
@@ -88,7 +81,7 @@ const rawFileContent = fs.readFileSync(
 
 const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
-const renderThemes = (themes: BootConfig['collections']['themes']) => {
+const createThemes = (themes: BootConfig['collections']['themes']) => {
   const themeDefinitions = zipToObject(themes ?? [], (theme: string) => ({
     name: theme,
     prefix: 'theme',
@@ -103,24 +96,58 @@ const renderThemes = (themes: BootConfig['collections']['themes']) => {
     },
   }));
 
-  const unmarkedThemes = zipToObject(themes ?? [], (theme: string) => ({
-    name: `${theme} unmarked`,
-    prefix: 'theme',
-    combineType: 'intersect',
-    config: {
-      [theme]: createKeywordCriteria(theme),
-      unPicked: {
-        criteria: 'pick',
-        operation: '==',
-        value: 0,
-      },
-    },
-  }));
+  // const unmarkedThemes = zipToObject(themes ?? [], (theme: string) => ({
+  //   name: `zzz ${theme}`,
+  //   prefix: 'theme',
+  //   combineType: 'intersect',
+  //   config: {
+  //     [theme]: createKeywordCriteria(theme),
+  //     unPicked: {
+  //       criteria: 'pick',
+  //       operation: '==',
+  //       value: 0,
+  //     },
+  //   },
+  // }));
 
   renderDefinitions([
     ...Object.values(themeDefinitions),
-    ...Object.values(unmarkedThemes),
+    // ...Object.values(unmarkedThemes),
   ]);
 };
 
-renderThemes(parsedFileContent.collections.themes);
+const createDefinitions = (definitions?: Definition[]) => {
+  const mappedDefinition = (definitions ?? []).map((definition) => {
+    switch (definition.prefix) {
+      case 'lens':
+        return {
+          name: definition.name,
+          prefix: definition.prefix,
+          combineType: definition.combineType,
+          config: {
+            [definition.name]: createFreeTextCriteria(
+              definition.config.lens?.value as string,
+              'lens'
+            ),
+            nonRejected: {
+              criteria: 'pick',
+              operation: '!=',
+              value: -1,
+            },
+          },
+        };
+      default:
+        return {
+          name: definition.name,
+          prefix: definition.prefix,
+          combineType: definition.combineType,
+          config: definition.config,
+        };
+    }
+  });
+
+  renderDefinitions(mappedDefinition);
+};
+
+createThemes(parsedFileContent.collections.themes);
+createDefinitions(parsedFileContent.collections.definitions);
