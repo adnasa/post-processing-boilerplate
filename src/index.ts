@@ -194,7 +194,10 @@ const [themesDefinitions, remainingDefinitions] = [
 
 const outputDefinitions = createOutputDefinitions([
   ...themesDefinitions,
-  ...remainingDefinitions,
+  ...remainingDefinitions.filter(
+    (definition) =>
+      definition.prefix !== 'phase' && definition.prefix !== 'camera'
+  ),
 ]);
 
 renderDefinitions([

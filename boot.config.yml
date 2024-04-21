@@ -58,12 +58,17 @@ collections:
       category: Urban
     - name: View
       category: Urban
-
+    
+    - name: Bikes
+      category: Motive
+    - name: Buildings
+      category: Motive
+    - name: Palm Trees
+      category: Motive
+    
     - name: Collectables
       category: Genre
     - name: Historical
-      category: Genre
-    - name: Palm Trees
       category: Genre
     - name: Port
       category: Genre
