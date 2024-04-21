@@ -3,8 +3,6 @@ namespace: AMA
 collections:
   themes:
     # whatever stored as keywords on the image's metadata
-    
-    # focal lengths
     - FL20
     - FL28
     - FL35
@@ -17,7 +15,6 @@ collections:
     - FL67
     - FL75
     - FL85
-    # Misc.
     - Architecture
     - Blur
     - CameraMode-APSCMode
@@ -26,7 +23,7 @@ collections:
     - Collectables
     - Cyberpunk
     - Food
-    - Hike 
+    - Hike
     - Historical
     - Isolation
     - Kitched
@@ -34,7 +31,7 @@ collections:
     - Night
     - Palm Trees
     - Panning
-    - Port # portraits
+    - Port
     - Series
     - Street
     - Sunrise
@@ -49,7 +46,7 @@ collections:
   definitions:
     # CAMERAS + FILE_FORMAT
     - name: Sony 7ii + JPEG
-      prefix: "camera"
+      prefix: 'camera'
       combineType: intersect
       config:
         pick:
@@ -58,11 +55,11 @@ collections:
           value: Sony ILCE-7M2
         fileFormat:
           criteria: fileFormat
-          operation: "=="
+          operation: '=='
           value: JPEG
 
     - name: Sony 7Cii + JPEG
-      prefix: "camera"
+      prefix: 'camera'
       combineType: intersect
       config:
         pick:
@@ -71,11 +68,11 @@ collections:
           value: Sony ILCE-7CM2
         fileFormat:
           criteria: fileFormat
-          operation: "=="
+          operation: '=='
           value: JPEG
 
     - name: Sony 7ii + RAW
-      prefix: "camera"
+      prefix: 'camera'
       combineType: intersect
       config:
         pick:
@@ -84,11 +81,11 @@ collections:
           value: Sony ILCE-7M2
         fileFormat:
           criteria: fileFormat
-          operation: "=="
+          operation: '=='
           value: RAW
 
     - name: Sony 7Cii + RAW
-      prefix: "camera"
+      prefix: 'camera'
       combineType: intersect
       config:
         pick:
@@ -97,11 +94,11 @@ collections:
           value: Sony ILCE-7CM2
         fileFormat:
           criteria: fileFormat
-          operation: "=="
+          operation: '=='
           value: RAW
 
     - name: iPhone
-      prefix: "camera"
+      prefix: 'camera'
       combineType: intersect
       config:
         pick:
@@ -111,62 +108,62 @@ collections:
 
     # PHASES
     - name: review required
-      prefix: "phase"
+      prefix: 'phase'
       combineType: intersect
       config:
         pick:
           criteria: pick
-          operation: "=="
+          operation: '=='
           value: 0
         labelColor:
           criteria: labelColor
-          operation: "=="
+          operation: '=='
           value: 1
 
     - name: export ready
-      prefix: "phase"
+      prefix: 'phase'
       combineType: intersect
       config:
         rating:
           criteria: rating
-          operation: ">="
+          operation: '>='
           value: 3
         labelColor:
           criteria: labelColor
-          operation: "=="
+          operation: '=='
           value: 3
 
     - name: unmarked
-      prefix: "phase"
+      prefix: 'phase'
       combineType: intersect
       config:
         pick:
           criteria: pick
-          operation: "=="
+          operation: '=='
           value: 0
 
     - name: marked for deletion
-      prefix: "phase"
+      prefix: 'phase'
       combineType: intersect
       config:
         pick:
           criteria: pick
-          operation: "=="
+          operation: '=='
           value: -1
 
     - name: WIP
-      prefix: "phase"
+      prefix: 'phase'
       combineType: intersect
       config:
         pick:
           criteria: pick
-          operation: "=="
+          operation: '=='
           value: 1
         labelColor:
           criteria: labelColor
-          operation: "=="
+          operation: '=='
           value: 4
-    
+
     # LENSES
     - name: Tamron 28-75mm F2.8
       prefix: lens
@@ -174,7 +171,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: E 28-75mm F2.8-2.8
 
     - name: Tamron 20mm F2.8
@@ -183,7 +180,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: E 20mm F2.8 F050
 
     - name: Samyang AF 45mm F1.8
@@ -192,7 +189,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: SAMYANG AF 45mm F1.8
 
     - name: Mir-1B 37mm F2.8
@@ -201,7 +198,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Mir-1B 37mm F2.8
 
     - name: Jupiter-9 85mm F2
@@ -210,7 +207,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Jupiter-9 85mm F2
 
     - name: Jupiter-8 50mm F2
@@ -219,7 +216,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Jupiter-8 50mm F2
 
     - name: Industar 26m 52mm F2.8
@@ -228,7 +225,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Industar 26m 52mm F2.8
 
     - name: Helios 44M-4 MC 58mm F2
@@ -237,7 +234,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Helios 44M-4 MC 58mm F2
 
     - name: Helios 44M-4 58mm F2
@@ -246,7 +243,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Helios 44M-4 58mm F2
 
     - name: Helios 44-2 58mm F2
@@ -255,7 +252,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Helios 44-2 58mm F2
 
     - name: Canon LTM 50mm F1.8
@@ -264,7 +261,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Canon LTM 50mm F1.8
 
     - name: Canon FD 50mm F1.4
@@ -273,7 +270,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Canon FD 50mm F1.4
 
     - name: Canon FD 50mm F1.8
@@ -282,7 +279,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Canon FD 50mm F1.8
 
     - name: Canon FD 35mm F2.8
@@ -291,7 +288,7 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Canon FD 35mm F2.8
 
     - name: Auto-Beroflex 28mm F2.8
@@ -300,5 +297,5 @@ collections:
       config:
         lens:
           criteria: lens
-          operation: "=="
+          operation: '=='
           value: Auto-Beroflex 28mm F2.8

@@ -5,24 +5,19 @@
   "description": "",
   "scripts": {
     "c": "yarn changeset",
+    "format:js": "npx prettier --write '**/*.{ts,js}'",
+    "format:md": "npx prettier --write --parser markdown '**/*.md'",
+    "format:yaml": "npx prettier --write --parser yaml '**/*.{yml,yaml}'",
+    "format": "yarn format:md && yarn format:yaml && yarn format:js",
     "lint": "eslint src/* --ext .ts --fix",
-    "service": "nodemon",
-    "start": "ts-node src/index.ts",
-    "release": "standard-version",
-    "test:local": "jest --setupFiles dotenv/config --ci -i --forceExit",
-    "test:ci": "jest --ci -i"
+    "start": "ts-node src/index.ts"
   },
   "author": "Adnan Asani",
   "license": "MIT",
   "nodemonConfig": {
-    "watch": [
-      ".env",
-      "src"
-    ],
+    "watch": [".env", "src"],
     "ext": "ts",
-    "ignore": [
-      "src/**/*.test.ts"
-    ],
+    "ignore": ["src/**/*.test.ts"],
     "exec": "npx ts-node -r dotenv/config ./src/index"
   },
   "devDependencies": {
