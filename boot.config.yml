@@ -44,7 +44,7 @@ collections:
           value: 0
         labelColor:
           criteria: labelColor
-          operation: ">="
+          operation: "=="
           value: 1
 
     - name: export ready
@@ -57,7 +57,7 @@ collections:
           value: 3
         labelColor:
           criteria: labelColor
-          operation: ">="
+          operation: "=="
           value: 3
 
     - name: unmarked

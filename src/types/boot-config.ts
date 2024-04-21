@@ -6,7 +6,7 @@ type Definition = {
     [k: string]: {
       criteria: string;
       operation: string;
-      value: string | number;
+      value: string | number | boolean;
     };
   };
 };

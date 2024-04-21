@@ -96,7 +96,7 @@ const createThemes = (themes: BootConfig['collections']['themes']) => {
     },
   }));
 
-  renderDefinitions(Object.values(themeDefinitions));
+  return Object.values(themeDefinitions);
 };
 
 const createDefinitions = (definitions?: Definition[]) => {
@@ -129,8 +129,41 @@ const createDefinitions = (definitions?: Definition[]) => {
     }
   });
 
-  renderDefinitions(mappedDefinition);
+  return mappedDefinition;
 };
 
-createThemes(parsedFileContent.collections.themes);
-createDefinitions(parsedFileContent.collections.definitions);
+const createOutputDefinitions = (definitions: Definition[]): Definition[] =>
+  definitions.map((definition) => ({
+    ...definition,
+    name: definition.name,
+    prefix: 'output',
+    config: {
+      ...definition.config,
+      nonRejected: {
+        criteria: 'pick',
+        operation: '!=',
+        value: -1,
+      },
+      isEdited: {
+        criteria: 'edit',
+        operation: 'isTrue',
+        value: true,
+      },
+    },
+  }));
+
+const [themesDefinitions, remainingDefinitions] = [
+  createThemes(parsedFileContent.collections.themes),
+  createDefinitions(parsedFileContent.collections.definitions),
+];
+
+const outputDefinitions = createOutputDefinitions([
+  ...themesDefinitions,
+  ...remainingDefinitions,
+]);
+
+renderDefinitions([
+  ...themesDefinitions,
+  ...remainingDefinitions,
+  ...outputDefinitions,
+]);
