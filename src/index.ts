@@ -1,57 +1,32 @@
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import { defer, mapValues, snake, zipToObject } from 'radash';
+import { mapValues, zipToObject } from 'radash';
 import * as yaml from 'yaml';
 import { BootConfig, Definition } from './types/boot-config';
+import {
+  lrsToCollectionString,
+  toCollectionName,
+  toFileName,
+  createFreeTextCriteria,
+  createKeywordCriteria,
+} from './utils';
 
-const createFreeTextCriteria = (value: string, key = 'keywords') => ({
-  criteria: key,
-  operation: '==',
-  value: value,
-  value2: '',
-});
+const rawFileContent = fs.readFileSync(
+  path.join(__dirname, '../boot.config.yml'),
+  'utf-8'
+);
 
-const createKeywordCriteria = (value: string) => ({
-  criteria: 'keywords',
-  operation: 'any',
-  value: value,
-  value2: '',
-});
+const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
 const renderDefinitions = (definitions: Definition[]) => {
   definitions.forEach((definition) => {
-    const collection = authorCollection(definition);
-
     fs.writeFileSync(
       path.join(__dirname, `../output/${toFileName(definition)}.lrsmcol`),
-      collection,
+      authorCollection(definition),
       'utf-8'
     );
   });
-};
-
-const lrsToCollectionString = (obj: Object) => {
-  const v: string[] = Object.entries(obj).map(
-    ([key, value]) =>
-      `${key} = ${typeof value === 'string' ? `"${value}"` : value}`
-  );
-
-  return `{
-        ${v.join(',\n        ')}
-      }`;
-};
-
-const toFileName = (definition: Definition) => {
-  const maybePrefix = definition.prefix ? [definition.prefix] : [];
-
-  return [...maybePrefix, snake(definition.name as string)].join(' - ');
-};
-
-const toCollectionName = (definition: Definition) => {
-  const maybePrefix = definition.prefix ? [definition.prefix] : [];
-
-  return [...maybePrefix, definition.name as string].join(' - ');
 };
 
 const authorCollection = (definition: Definition) => {
@@ -73,13 +48,6 @@ const authorCollection = (definition: Definition) => {
   }
   `;
 };
-
-const rawFileContent = fs.readFileSync(
-  path.join(__dirname, '../boot.config.yml'),
-  'utf-8'
-);
-
-const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
 const createThemes = (themes: BootConfig['collections']['themes']) => {
   const themeDefinitions = zipToObject(themes ?? [], (theme: string) => ({

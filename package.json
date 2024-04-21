@@ -7,7 +7,7 @@
     "c": "yarn changeset",
     "lint": "eslint src/* --ext .ts --fix",
     "service": "nodemon",
-    "start": "rm -rf ./output && mkdir ./output && ts-node src/index.ts",
+    "start": "ts-node src/index.ts",
     "release": "standard-version",
     "test:local": "jest --setupFiles dotenv/config --ci -i --forceExit",
     "test:ci": "jest --ci -i"

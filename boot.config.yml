@@ -2,6 +2,9 @@ namespace: AMA
 
 collections:
   themes:
+    # whatever stored as keywords on the image's metadata
+    
+    # focal lengths
     - FL20
     - FL28
     - FL35
@@ -10,29 +13,102 @@ collections:
     - FL45
     - FL50
     - FL58
+    - FL60
+    - FL67
     - FL75
     - FL85
-    - Cinemoments
-    - Cyberpunk
+    # Misc.
     - Architecture
-    - Isolation
-    - Historical
+    - Blur
     - CameraMode-APSCMode
-    - Tourism
-    - Unknown
-    - Series
-    - Port
-    - Multicolor
+    - Cinemoments
+    - Coffee
+    - Collectables
+    - Cyberpunk
+    - Food
+    - Hike 
+    - Historical
+    - Isolation
+    - Kitched
+    - MultiColors
     - Night
     - Palm Trees
+    - Panning
+    - Port # portraits
+    - Series
     - Street
     - Sunrise
     - Sunset
+    - Tourism
+    - Unknown
     - Urban
     - Urban Landscape
     - VerticalLandscape
+    - View
 
   definitions:
+    # CAMERAS + FILE_FORMAT
+    - name: Sony 7ii + JPEG
+      prefix: "camera"
+      combineType: intersect
+      config:
+        pick:
+          criteria: camera
+          operation: any
+          value: Sony ILCE-7M2
+        fileFormat:
+          criteria: fileFormat
+          operation: "=="
+          value: JPEG
+
+    - name: Sony 7Cii + JPEG
+      prefix: "camera"
+      combineType: intersect
+      config:
+        pick:
+          criteria: camera
+          operation: any
+          value: Sony ILCE-7CM2
+        fileFormat:
+          criteria: fileFormat
+          operation: "=="
+          value: JPEG
+
+    - name: Sony 7ii + RAW
+      prefix: "camera"
+      combineType: intersect
+      config:
+        pick:
+          criteria: camera
+          operation: any
+          value: Sony ILCE-7M2
+        fileFormat:
+          criteria: fileFormat
+          operation: "=="
+          value: RAW
+
+    - name: Sony 7Cii + RAW
+      prefix: "camera"
+      combineType: intersect
+      config:
+        pick:
+          criteria: camera
+          operation: any
+          value: Sony ILCE-7CM2
+        fileFormat:
+          criteria: fileFormat
+          operation: "=="
+          value: RAW
+
+    - name: iPhone
+      prefix: "camera"
+      combineType: intersect
+      config:
+        pick:
+          criteria: camera
+          operation: any
+          value: iphone
+
     # PHASES
     - name: review required
       prefix: "phase"
@@ -110,7 +186,7 @@ collections:
           operation: "=="
           value: E 20mm F2.8 F050
 
-    - name: SAMYANG AF 45mm F1.8
+    - name: Samyang AF 45mm F1.8
       prefix: lens
       combineType: intersect
       config:
