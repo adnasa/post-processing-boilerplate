@@ -1,9 +1,23 @@
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import { group, mapValues, zipToObject, cluster, listify, title } from 'radash';
+import {
+  group,
+  mapValues,
+  zipToObject,
+  cluster,
+  listify,
+  title,
+  iterate,
+} from 'radash';
 import * as yaml from 'yaml';
-import { BootConfig, Definition, Theme } from './types/boot-config';
+import {
+  BootConfig,
+  Definition,
+  FilterConfig,
+  KeywordSetConfig,
+  Theme,
+} from './types/boot-config';
 import {
   lrsToCollectionString,
   toCollectionName,
@@ -11,6 +25,7 @@ import {
   createFreeTextCriteria,
   createKeywordCriteria,
 } from './utils';
+import { commaLists } from 'common-tags';
 
 const rawFileContent = fs.readFileSync(
   path.join(__dirname, '../boot.config.yml'),
@@ -34,15 +49,21 @@ const renderDefinitions = (definitions: Definition[]) => {
 
 const authorCollection = (definition: Definition) => {
   const mappedConfig =
-    definition.type === 'LibrarySmartCollection'
-      ? mapValues(definition.config, (config) => lrsToCollectionString(config))
-      : {};
+    definition.type === 'KeywordSet'
+      ? {
+          values: ((definition.config as KeywordSetConfig) ?? []).map(
+            (value, iteration) => `shortcut${iteration + 1}title="${value}"\n`
+          ),
+        }
+      : mapValues(definition.config as FilterConfig, (config) =>
+          lrsToCollectionString(config)
+        );
 
   const withCombine = definition.combineType
     ? `combine = "${definition.combineType}",`
     : '';
 
-  return `
+  return commaLists`
   s = {
     id = "${uuid()}",
     internalName = "${toCollectionName(definition)}",
@@ -88,7 +109,7 @@ const createDefinitions = (definitions?: Definition[]) => {
           combineType: definition.combineType,
           config: {
             [definition.name]: createFreeTextCriteria(
-              definition.config.lens?.value as string,
+              (definition.config as FilterConfig).lens?.value as string,
               'lens'
             ),
             nonRejected: {
@@ -111,18 +132,39 @@ const createDefinitions = (definitions?: Definition[]) => {
   return mappedDefinition;
 };
 
-const testKeywordSets = (themes: Theme[]) => {
+const addKeywordSets = (themes: Theme[]) => {
   const groupedByCategory = mapValues(
     group(themes, (theme) => theme.category),
     (value) => cluster(value?.map((value) => value.name) ?? [], 9)
   );
 
-  const flattened = listify(groupedByCategory, (key, chunks) => ({
-    chunks,
-    category: key,
-  }));
+  const flattened = listify(groupedByCategory, (key, chunks) => {
+    const items = chunks.reduce(
+      (collected, pieceOfChunks, iteration) => ({
+        ...collected,
+        [key + ' ' + (iteration + 1)]: pieceOfChunks,
+      }),
+      {}
+    );
 
-  console.log(require('util').inspect(flattened, { depth: null }));
+    return items;
+  });
+
+  flattened.forEach((flatItem) => {
+    Object.entries(flatItem).forEach(([name, values]) => {
+      const keywordDefinition: Definition = {
+        name,
+        type: 'KeywordSet',
+        config: values as KeywordSetConfig,
+      };
+
+      fs.writeFileSync(
+        path.join(__dirname, `../output/Keyword Sets/${name}.lrtemplate`),
+        authorCollection(keywordDefinition),
+        'utf-8'
+      );
+    });
+  });
 };
 
 const createOutputDefinitions = (definitions: Definition[]): Definition[] =>
@@ -161,4 +203,4 @@ renderDefinitions([
   ...outputDefinitions,
 ]);
 
-testKeywordSets(parsedFileContent.collections.themes ?? []);
+addKeywordSets(parsedFileContent.collections.themes ?? []);

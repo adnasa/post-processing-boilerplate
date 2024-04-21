@@ -1,15 +1,19 @@
+type FilterConfig = {
+  [k: string]: {
+    criteria: string;
+    operation: string;
+    value: string | number | boolean;
+  };
+};
+
+type KeywordSetConfig = string[];
+
 type Definition = {
   name: string;
   combineType?: string;
   type?: 'LibrarySmartCollection' | 'KeywordSet';
   prefix?: string;
-  config: {
-    [k: string]: {
-      criteria: string;
-      operation: string;
-      value: string | number | boolean;
-    };
-  };
+  config: FilterConfig | KeywordSetConfig;
 };
 
 type Theme = {
@@ -25,4 +29,4 @@ type BootConfig = {
   };
 };
 
-export { BootConfig, Definition, Theme };
+export { BootConfig, Definition, Theme, KeywordSetConfig, FilterConfig };

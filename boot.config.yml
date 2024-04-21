@@ -28,7 +28,7 @@ collections:
     - name: FL85
       category: Focal Length Tele
 
-    - name: CameraMode-APSCMode
+    - name: CameraMode-APSC
       category: Camera Mode
 
     - name: Food
