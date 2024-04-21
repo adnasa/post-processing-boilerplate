@@ -1,0 +1,286 @@
+namespace: AMA
+
+collections:
+  themes: 
+    - Multicolor
+    - Night
+    - Street 
+    - Urban
+
+  definitions:
+    - name: Tamron 28-75mm F2.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: E 28-75mm F2.8-2.8
+          value2: ""
+
+    - name: Tamron 20mm F2.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: E 20mm F2.8 F050
+          value2: ""
+
+    - name: SAMYANG AF 45mm F1.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: SAMYANG AF 45mm F1.8
+          value2: ""
+
+    - name: Mir-1B 37mm F2.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Mir-1B 37mm F2.8
+          value2: ""
+
+    - name: Jupiter-9 85mm F2
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Jupiter-9 85mm F2
+          value2: ""
+
+    - name: Jupiter-8 50mm F2
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Jupiter-8 50mm F2
+          value2: ""
+
+    - name: Industar 26m 52mm F2.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Industar 26m 52mm F2.8
+          value2: ""
+
+    - name: Helios 44M-4 MC 58mm F2
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Helios 44M-4 MC 58mm F2
+          value2: ""
+
+    - name: Helios 44M-4 58mm F2
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Helios 44M-4 58mm F2
+          value2: ""
+
+    - name: Helios 44-2 58mm F2
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Helios 44-2 58mm F2
+          value2: ""
+
+    - name: Canon LTM 50mm F1.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Canon LTM 50mm F1.8
+          value2: ""
+
+    - name: Canon FD 50mm F1.4
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Canon FD 50mm F1.4
+          value2: ""
+
+    - name: Canon FD 50mm F1.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Canon FD 50mm F1.8
+          value2: ""
+
+    - name: Canon FD 35mm F2.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Canon FD 35mm F2.8
+          value2: ""
+
+    - name: Auto-Beroflex 28mm F2.8
+      prefix: lens
+      combineType: intersect
+      config:
+        - criteria: lens
+          operation: '=='
+          value: Auto-Beroflex 28mm F2.8
+          value2: ""
+
+    - name: FL20
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL20
+          value2: ""
+
+    - name: FL28
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL28
+          value2: ""
+
+    - name: FL35
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL35
+          value2: ""
+
+    - name: FL37
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL37
+          value2: ""
+
+    - name: FL42
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL42
+          value2: ""
+
+    - name: FL45
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL45
+          value2: ""
+
+    - name: FL50
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL50
+          value2: ""
+
+    - name: FL58
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL58
+          value2: ""
+
+    - name: FL75
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL75
+          value2: ""
+
+    - name: FL85
+      prefix: ''
+      combineType: intersect
+      config:
+        - criteria: keywords
+          operation: any 
+          value: FL85
+          value2: ""
+
+    - name: review required
+      prefix: 'phase'
+      combineType: intersect
+      config:
+        - criteria: pick
+          operation: '=='
+          value: 0
+        - criteria: labelColor
+          operation: '>='
+          value: 1
+
+    - name: export ready
+      prefix: 'phase'
+      combineType: intersect
+      config:
+        - criteria: rating
+          operation: '>='
+          value: 3
+        - criteria: labelColor
+          operation: '>='
+          value: 3
+
+    - name: unmarked
+      prefix: 'phase'
+      combineType: intersect
+      config:
+          - criteria: pick
+            operation: "=="
+            value: 0
+
+    - name: marked for deletion
+      prefix: 'phase'
+      combineType: intersect
+      config:
+          - criteria: pick
+            operation: "=="
+            value: -1
+
+    - name: WIP
+      prefix: 'phase'
+      combineType: intersect
+      config:
+          - criteria: pick
+            operation: "=="
+            value: 1
+          - criteria: labelColor
+            operation: "=="
+            value: 4
+      
+
+
