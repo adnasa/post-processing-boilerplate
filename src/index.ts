@@ -1,42 +1,73 @@
-import { stripIndents } from 'common-tags';
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import { iterate, snake, zipToObject } from 'radash';
+import { mapValues, snake, zipToObject } from 'radash';
 import * as yaml from 'yaml';
+import { BootConfig, Definition } from './types/boot-config';
 
-const objToCollectionString = (obj: Object) => {
-  const v = Object.entries(obj).map(([key, value]) => `${key} = "${value}"`);
+const createFuzzyCriteria = (value: string) => ({
+  criteria: 'keywords',
+  operation: 'any',
+  value: value,
+  value2: '',
+});
+
+const renderDefinitions = (definitions: Definition[]) => {
+  definitions.forEach((definition) => {
+    const collection = authorCollection(definition);
+
+    try {
+      fs.mkdirSync(path.join(__dirname, `../output/${definition.prefix}`));
+    } catch (e: unknown) {}
+
+    fs.writeFileSync(
+      path.join(
+        __dirname,
+        `../output/${definition.prefix}/${toFileName(definition)}.lrsmcol`
+      ),
+      collection,
+      'utf-8'
+    );
+  });
+};
+
+const lrsToCollectionString = (obj: Object) => {
+  const v: string[] = Object.entries(obj).map(
+    ([key, value]) =>
+      `${key} = ${typeof value === 'string' ? `"${value}"` : value}`
+  );
 
   return `{
         ${v.join(',\n        ')}
       }`;
 };
 
-const toFileName = (definition: Record<string, unknown>) => {
-  const withPrefix = definition.prefix ? [definition.prefix] : [];
+const toFileName = (definition: Definition) => {
+  const maybePrefix = definition.prefix ? [definition.prefix] : [];
 
-  return [...withPrefix, snake(definition.name as string)].join(' - ');
+  return [...maybePrefix, snake(definition.name as string)].join(' - ');
 };
 
-const authorCollection = (definition: any) => {
-  const config = (Object.values(definition.config) ?? []).map(
-    (element: any) => {
-      const x = objToCollectionString(element);
+const toCollectionName = (definition: Definition) => {
+  const maybePrefix = definition.prefix ? [definition.prefix] : [];
 
-      return x;
-    }
+  return [...maybePrefix, definition.name as string].join(' - ');
+};
+
+const authorCollection = (definition: Definition) => {
+  const mappedConfig = mapValues(definition.config, (config) =>
+    lrsToCollectionString(config)
   );
 
   return `
   s = {
     id = "${uuid()}",
-    internalName = "${definition.prefix} - ${definition.name} 2",
-    title = "${definition.prefix} - ${definition.name} 2",
+    internalName = "${toCollectionName(definition)}",
+    title = "${toCollectionName(definition)}",
     type = "LibrarySmartCollection",
     value = {
       combine = "${definition.combineType}",
-      ${config}
+      ${Object.values(mappedConfig)}
     },
     version = 0,
   }
@@ -50,29 +81,39 @@ const rawFileContent = fs.readFileSync(
 
 const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
-const themeDefinitions = zipToObject(
-  parsedFileContent.collections.themes ?? [],
-  (theme: string) => ({
+const renderThemes = (themes: BootConfig['collections']['themes']) => {
+  const themeDefinitions = zipToObject(themes ?? [], (theme: string) => ({
     name: theme,
     prefix: 'theme',
     combineType: 'intersect',
     config: {
-      [theme]: {
-        criteria: 'keywords',
-        operation: 'any',
-        value: theme,
-        value2: '',
+      [theme]: createFuzzyCriteria(theme),
+      nonRejected: {
+        criteria: 'pick',
+        operation: '!=',
+        value: -1,
       },
     },
-  })
-);
+  }));
 
-Object.values(themeDefinitions).forEach((definition) => {
-  const collection = authorCollection(definition);
+  const unmarkedThemes = zipToObject(themes ?? [], (theme: string) => ({
+    name: `${theme} unmarked`,
+    prefix: 'theme',
+    combineType: 'intersect',
+    config: {
+      [theme]: createFuzzyCriteria(theme),
+      unPicked: {
+        criteria: 'pick',
+        operation: '==',
+        value: 0,
+      },
+    },
+  }));
 
-  fs.writeFileSync(
-    path.join(__dirname, `../output/${toFileName(definition)}.lrsmcol`),
-    collection,
-    'utf-8'
-  );
-});
+  renderDefinitions([
+    ...Object.values(themeDefinitions),
+    ...Object.values(unmarkedThemes),
+  ]);
+};
+
+renderThemes(parsedFileContent.collections.themes);
