@@ -1,0 +1,35 @@
+{
+  "name": "post-process-boilerplate",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "description": "",
+  "scripts": {
+    "lint": "eslint src/* --ext .ts --fix",
+    "service": "nodemon",
+    "start": "ts-node src/index.ts",
+    "release": "standard-version",
+    "test:local": "jest --setupFiles dotenv/config --ci -i --forceExit",
+    "test:ci": "jest --ci -i"
+  },
+  "author": "Adnan Asani",
+  "license": "MIT",
+  "nodemonConfig": {
+    "watch": [
+      ".env",
+      "src"
+    ],
+    "ext": "ts",
+    "ignore": [
+      "src/**/*.test.ts"
+    ],
+    "exec": "npx ts-node -r dotenv/config ./src/index"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/yargs": "^17.0.32",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5",
+    "yargs": "^17.7.2"
+  }
+}
