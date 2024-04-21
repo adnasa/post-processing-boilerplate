@@ -4,74 +4,51 @@ collections:
   themes:
     # whatever stored as keywords on the image's metadata
     - name: FL20
-      category: Focal Length
+      category: Focal Length Wide
     - name: FL28
-      category: Focal Length
+      category: Focal Length Wide
     - name: FL35
-      category: Focal Length
+      category: Focal Length Wide
     - name: FL37
-      category: Focal Length
+      category: Focal Length Wide
     - name: FL42
-      category: Focal Length
+      category: Focal Length Standard
     - name: FL45
-      category: Focal Length
+      category: Focal Length Standard
     - name: FL50
-      category: Focal Length
+      category: Focal Length Standard
     - name: FL58
-      category: Focal Length
+      category: Focal Length Standard
     - name: FL60
-      category: Focal Length
+      category: Focal Length Tele
     - name: FL67
-      category: Focal Length
+      category: Focal Length Tele
     - name: FL75
-      category: Focal Length
+      category: Focal Length Tele
     - name: FL85
-      category: Focal Length
+      category: Focal Length Tele
+
+    - name: CameraMode-APSCMode
+      category: Camera Mode
+
+    - name: Food
+      category: Occasion
+    - name: Hike
+      category: Occasion
+    - name: Sunrise
+      category: Occasion
+    - name: Sunset
+      category: Occasion
+    - name: Tourism
+      category: Occasion
+    - name: Coffee
+      category: Occasion
+    - name: Night
+      category: Occasion
+
     - name: Architecture
       category: Urban
-    - name: Blur
-      category: Urban
-    - name: CameraMode-APSCMode
-      category: Urban
-    - name: Cinemoments
-      category: Urban
-    - name: Coffee
-      category: Urban
-    - name: Collectables
-      category: Urban
-    - name: Cyberpunk
-      category: Urban
-    - name: Food
-      category: Urban
-    - name: Hike
-      category: Urban
-    - name: Historical
-      category: Urban
-    - name: Isolation
-      category: Urban
-    - name: Kitched
-      category: Urban
-    - name: MultiColors
-      category: Urban
-    - name: Night
-      category: Urban
-    - name: Palm Trees
-      category: Urban
-    - name: Panning
-      category: Urban
-    - name: Port
-      category: Urban
-    - name: Series
-      category: Urban
-    - name: Street
-      category: Urban
-    - name: Sunrise
-      category: Urban
-    - name: Sunset
-      category: Urban
-    - name: Tourism
-      category: Urban
-    - name: Unknown
+    - name: Kitchen
       category: Urban
     - name: Urban
       category: Urban
@@ -81,6 +58,33 @@ collections:
       category: Urban
     - name: View
       category: Urban
+
+    - name: Collectables
+      category: Genre
+    - name: Historical
+      category: Genre
+    - name: Palm Trees
+      category: Genre
+    - name: Port
+      category: Genre
+    - name: Series
+      category: Genre
+    - name: Blur
+      category: Genre
+    - name: Cinemoments
+      category: Genre
+    - name: Cyberpunk
+      category: Genre
+    - name: Isolation
+      category: Genre
+    - name: MultiColors
+      category: Genre
+    - name: Panning
+      category: Genre
+    - name: Street
+      category: Genre
+    - name: Unknown
+      category: Genre
 
   definitions:
     # CAMERAS + FILE_FORMAT

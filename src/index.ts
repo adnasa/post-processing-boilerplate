@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import { mapValues, zipToObject } from 'radash';
+import { group, mapValues, zipToObject, cluster, listify, title } from 'radash';
 import * as yaml from 'yaml';
 import { BootConfig, Definition, Theme } from './types/boot-config';
 import {
@@ -22,7 +22,10 @@ const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 const renderDefinitions = (definitions: Definition[]) => {
   definitions.forEach((definition) => {
     fs.writeFileSync(
-      path.join(__dirname, `../output/${toFileName(definition)}.lrsmcol`),
+      path.join(
+        __dirname,
+        `../output/Lightroom/${toFileName(definition)}.lrsmcol`
+      ),
       authorCollection(definition),
       'utf-8'
     );
@@ -30,18 +33,23 @@ const renderDefinitions = (definitions: Definition[]) => {
 };
 
 const authorCollection = (definition: Definition) => {
-  const mappedConfig = mapValues(definition.config, (config) =>
-    lrsToCollectionString(config)
-  );
+  const mappedConfig =
+    definition.type === 'LibrarySmartCollection'
+      ? mapValues(definition.config, (config) => lrsToCollectionString(config))
+      : {};
+
+  const withCombine = definition.combineType
+    ? `combine = "${definition.combineType}",`
+    : '';
 
   return `
   s = {
     id = "${uuid()}",
     internalName = "${toCollectionName(definition)}",
     title = "${toCollectionName(definition)}",
-    type = "LibrarySmartCollection",
+    type = "${definition.type ?? 'LibrarySmartCollection'}",
     value = {
-      combine = "${definition.combineType}",
+      ${withCombine}
       ${Object.values(mappedConfig)}
     },
     version = 0,
@@ -54,7 +62,7 @@ const createThemes = (themes: BootConfig['collections']['themes']) => {
     themes?.map((theme) => theme.name) ?? [],
     (themeName: string) => ({
       name: themeName,
-      prefix: 'themeName',
+      prefix: 'theme',
       combineType: 'intersect',
       config: {
         [themeName]: createKeywordCriteria(themeName),
@@ -103,6 +111,20 @@ const createDefinitions = (definitions?: Definition[]) => {
   return mappedDefinition;
 };
 
+const testKeywordSets = (themes: Theme[]) => {
+  const groupedByCategory = mapValues(
+    group(themes, (theme) => theme.category),
+    (value) => cluster(value?.map((value) => value.name) ?? [], 9)
+  );
+
+  const flattened = listify(groupedByCategory, (key, chunks) => ({
+    chunks,
+    category: key,
+  }));
+
+  console.log(require('util').inspect(flattened, { depth: null }));
+};
+
 const createOutputDefinitions = (definitions: Definition[]): Definition[] =>
   definitions.map((definition) => ({
     ...definition,
@@ -138,3 +160,5 @@ renderDefinitions([
   ...remainingDefinitions,
   ...outputDefinitions,
 ]);
+
+testKeywordSets(parsedFileContent.collections.themes ?? []);

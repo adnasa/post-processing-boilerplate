@@ -1,7 +1,8 @@
 type Definition = {
   name: string;
-  combineType: string;
-  prefix: string;
+  combineType?: string;
+  type?: 'LibrarySmartCollection' | 'KeywordSet';
+  prefix?: string;
   config: {
     [k: string]: {
       criteria: string;
