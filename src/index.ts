@@ -96,24 +96,7 @@ const createThemes = (themes: BootConfig['collections']['themes']) => {
     },
   }));
 
-  // const unmarkedThemes = zipToObject(themes ?? [], (theme: string) => ({
-  //   name: `zzz ${theme}`,
-  //   prefix: 'theme',
-  //   combineType: 'intersect',
-  //   config: {
-  //     [theme]: createKeywordCriteria(theme),
-  //     unPicked: {
-  //       criteria: 'pick',
-  //       operation: '==',
-  //       value: 0,
-  //     },
-  //   },
-  // }));
-
-  renderDefinitions([
-    ...Object.values(themeDefinitions),
-    // ...Object.values(unmarkedThemes),
-  ]);
+  renderDefinitions(Object.values(themeDefinitions));
 };
 
 const createDefinitions = (definitions?: Definition[]) => {
