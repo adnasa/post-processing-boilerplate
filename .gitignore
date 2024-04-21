@@ -4,6 +4,7 @@
 # project
 /output/
 /.yarn/
+.DS_Store
 
 ### Node ###
 # Logs
