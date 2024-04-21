@@ -5,7 +5,14 @@ import { mapValues, snake, zipToObject } from 'radash';
 import * as yaml from 'yaml';
 import { BootConfig, Definition } from './types/boot-config';
 
-const createFuzzyCriteria = (value: string) => ({
+const createFreeTextCriteria = (value: string, key = 'keywords') => ({
+  criteria: key,
+  operation: '==',
+  value: value,
+  value2: '',
+});
+
+const createKeywordCriteria = (value: string) => ({
   criteria: 'keywords',
   operation: 'any',
   value: value,
@@ -87,7 +94,7 @@ const renderThemes = (themes: BootConfig['collections']['themes']) => {
     prefix: 'theme',
     combineType: 'intersect',
     config: {
-      [theme]: createFuzzyCriteria(theme),
+      [theme]: createKeywordCriteria(theme),
       nonRejected: {
         criteria: 'pick',
         operation: '!=',
@@ -101,7 +108,7 @@ const renderThemes = (themes: BootConfig['collections']['themes']) => {
     prefix: 'theme',
     combineType: 'intersect',
     config: {
-      [theme]: createFuzzyCriteria(theme),
+      [theme]: createKeywordCriteria(theme),
       unPicked: {
         criteria: 'pick',
         operation: '==',
