@@ -1,15 +1,8 @@
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import {
-  group,
-  mapValues,
-  zipToObject,
-  cluster,
-  listify,
-  title,
-  iterate,
-} from 'radash';
+import { commaLists } from 'common-tags';
+import { group, mapValues, zipToObject, cluster, listify } from 'radash';
 import * as yaml from 'yaml';
 import {
   BootConfig,
@@ -25,7 +18,6 @@ import {
   createFreeTextCriteria,
   createKeywordCriteria,
 } from './utils';
-import { commaLists } from 'common-tags';
 import { renderMetadataXmp } from './template-helpers/metadata-file';
 
 const rawFileContent = fs.readFileSync(
