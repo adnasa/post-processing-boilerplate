@@ -26,6 +26,7 @@ import {
   createKeywordCriteria,
 } from './utils';
 import { commaLists } from 'common-tags';
+import { renderMetadataXmp } from './template-helpers/metadata-file';
 
 const rawFileContent = fs.readFileSync(
   path.join(__dirname, '../boot.config.yml'),
@@ -187,6 +188,20 @@ const createOutputDefinitions = (definitions: Definition[]): Definition[] =>
     },
   }));
 
+const addMetadataTemplates = (themes: Theme[]) => {
+  themes.forEach((theme) => {
+    const metadataOutput = renderMetadataXmp(theme.name);
+    fs.writeFileSync(
+      path.join(
+        __dirname,
+        `../output/Metadata Templates/Keyword - ${theme.name}.xmp`
+      ),
+      metadataOutput,
+      'utf-8'
+    );
+  });
+};
+
 const [themesDefinitions, remainingDefinitions] = [
   createThemes(parsedFileContent.collections.themes),
   createDefinitions(parsedFileContent.collections.definitions),
@@ -207,3 +222,4 @@ renderDefinitions([
 ]);
 
 addKeywordSets(parsedFileContent.collections.themes ?? []);
+addMetadataTemplates(parsedFileContent.collections.themes ?? []);
