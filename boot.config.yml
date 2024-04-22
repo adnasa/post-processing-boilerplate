@@ -1,4 +1,5 @@
-namespace: AMA
+namespace: EXAMPLE
+Author: EXAMPLE
 
 collections:
   themes:
