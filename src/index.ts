@@ -1,9 +1,23 @@
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
-import { mapValues, zipToObject } from 'radash';
+import {
+  group,
+  mapValues,
+  zipToObject,
+  cluster,
+  listify,
+  title,
+  iterate,
+} from 'radash';
 import * as yaml from 'yaml';
-import { BootConfig, Definition, Theme } from './types/boot-config';
+import {
+  BootConfig,
+  Definition,
+  FilterConfig,
+  KeywordSetConfig,
+  Theme,
+} from './types/boot-config';
 import {
   lrsToCollectionString,
   toCollectionName,
@@ -11,6 +25,7 @@ import {
   createFreeTextCriteria,
   createKeywordCriteria,
 } from './utils';
+import { commaLists } from 'common-tags';
 
 const rawFileContent = fs.readFileSync(
   path.join(__dirname, '../boot.config.yml'),
@@ -22,7 +37,10 @@ const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 const renderDefinitions = (definitions: Definition[]) => {
   definitions.forEach((definition) => {
     fs.writeFileSync(
-      path.join(__dirname, `../output/${toFileName(definition)}.lrsmcol`),
+      path.join(
+        __dirname,
+        `../output/Lightroom/${toFileName(definition)}.lrsmcol`
+      ),
       authorCollection(definition),
       'utf-8'
     );
@@ -30,18 +48,29 @@ const renderDefinitions = (definitions: Definition[]) => {
 };
 
 const authorCollection = (definition: Definition) => {
-  const mappedConfig = mapValues(definition.config, (config) =>
-    lrsToCollectionString(config)
-  );
+  const mappedConfig =
+    definition.type === 'KeywordSet'
+      ? {
+          values: ((definition.config as KeywordSetConfig) ?? []).map(
+            (value, iteration) => `shortcut${iteration + 1}title="${value}"\n`
+          ),
+        }
+      : mapValues(definition.config as FilterConfig, (config) =>
+          lrsToCollectionString(config)
+        );
 
-  return `
+  const withCombine = definition.combineType
+    ? `combine = "${definition.combineType}",`
+    : '';
+
+  return commaLists`
   s = {
     id = "${uuid()}",
     internalName = "${toCollectionName(definition)}",
     title = "${toCollectionName(definition)}",
-    type = "LibrarySmartCollection",
+    type = "${definition.type ?? 'LibrarySmartCollection'}",
     value = {
-      combine = "${definition.combineType}",
+      ${withCombine}
       ${Object.values(mappedConfig)}
     },
     version = 0,
@@ -54,7 +83,7 @@ const createThemes = (themes: BootConfig['collections']['themes']) => {
     themes?.map((theme) => theme.name) ?? [],
     (themeName: string) => ({
       name: themeName,
-      prefix: 'themeName',
+      prefix: 'theme',
       combineType: 'intersect',
       config: {
         [themeName]: createKeywordCriteria(themeName),
@@ -80,7 +109,7 @@ const createDefinitions = (definitions?: Definition[]) => {
           combineType: definition.combineType,
           config: {
             [definition.name]: createFreeTextCriteria(
-              definition.config.lens?.value as string,
+              (definition.config as FilterConfig).lens?.value as string,
               'lens'
             ),
             nonRejected: {
@@ -101,6 +130,41 @@ const createDefinitions = (definitions?: Definition[]) => {
   });
 
   return mappedDefinition;
+};
+
+const addKeywordSets = (themes: Theme[]) => {
+  const groupedByCategory = mapValues(
+    group(themes, (theme) => theme.category),
+    (value) => cluster(value?.map((value) => value.name) ?? [], 9)
+  );
+
+  const flattened = listify(groupedByCategory, (key, chunks) => {
+    const items = chunks.reduce(
+      (collected, pieceOfChunks, iteration) => ({
+        ...collected,
+        [key + ' ' + (iteration + 1)]: pieceOfChunks,
+      }),
+      {}
+    );
+
+    return items;
+  });
+
+  flattened.forEach((flatItem) => {
+    Object.entries(flatItem).forEach(([name, values]) => {
+      const keywordDefinition: Definition = {
+        name,
+        type: 'KeywordSet',
+        config: values as KeywordSetConfig,
+      };
+
+      fs.writeFileSync(
+        path.join(__dirname, `../output/Keyword Sets/${name}.lrtemplate`),
+        authorCollection(keywordDefinition),
+        'utf-8'
+      );
+    });
+  });
 };
 
 const createOutputDefinitions = (definitions: Definition[]): Definition[] =>
@@ -130,7 +194,10 @@ const [themesDefinitions, remainingDefinitions] = [
 
 const outputDefinitions = createOutputDefinitions([
   ...themesDefinitions,
-  ...remainingDefinitions,
+  ...remainingDefinitions.filter(
+    (definition) =>
+      definition.prefix !== 'phase' && definition.prefix !== 'camera'
+  ),
 ]);
 
 renderDefinitions([
@@ -138,3 +205,5 @@ renderDefinitions([
   ...remainingDefinitions,
   ...outputDefinitions,
 ]);
+
+addKeywordSets(parsedFileContent.collections.themes ?? []);

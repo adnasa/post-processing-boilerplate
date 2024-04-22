@@ -23,7 +23,7 @@ const toCollectionName = (definition: Definition) => {
   return [...maybePrefix, definition.name as string].join(' - ');
 };
 
-const createFreeTextCriteria = (value: string, key = 'keywords') => ({
+const createFreeTextCriteria = <T>(value: T, key = 'keywords') => ({
   criteria: key,
   operation: '==',
   value: value,
