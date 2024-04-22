@@ -32,7 +32,7 @@ const renderDefinitions = (definitions: Definition[]) => {
     fs.writeFileSync(
       path.join(
         __dirname,
-        `../output/Lightroom/${toFileName(definition)}.lrsmcol`
+        `../output/Lightroom/Collections/${toFileName(definition)}.lrsmcol`
       ),
       authorCollection(definition),
       'utf-8'
@@ -152,7 +152,10 @@ const addKeywordSets = (themes: Theme[]) => {
       };
 
       fs.writeFileSync(
-        path.join(__dirname, `../output/Keyword Sets/${name}.lrtemplate`),
+        path.join(
+          __dirname,
+          `../output/Lightroom/Keyword Sets/${name}.lrtemplate`
+        ),
         authorCollection(keywordDefinition),
         'utf-8'
       );
