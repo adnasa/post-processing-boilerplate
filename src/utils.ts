@@ -11,17 +11,13 @@ const lrsToCollectionString = (obj: Object) => {
       }`;
 };
 
-const toFileName = (definition: Definition) => {
+const toCollectionName = (definition: Definition) => {
   const maybePrefix = definition.prefix ? [definition.prefix] : [];
 
   return [...maybePrefix, definition.name].join(' - ');
 };
 
-const toCollectionName = (definition: Definition) => {
-  const maybePrefix = definition.prefix ? [definition.prefix] : [];
-
-  return [...maybePrefix, definition.name as string].join(' - ');
-};
+const toFileName = (definition: Definition) => toCollectionName(definition);
 
 const createFreeTextCriteria = <T>(value: T, key = 'keywords') => ({
   criteria: key,
@@ -30,7 +26,7 @@ const createFreeTextCriteria = <T>(value: T, key = 'keywords') => ({
   value2: '',
 });
 
-const createKeywordCriteria = (value: string) => ({
+const createAnyKeywordCriteria = (value: string) => ({
   criteria: 'keywords',
   operation: 'any',
   value: value,
@@ -42,5 +38,5 @@ export {
   toCollectionName,
   toFileName,
   createFreeTextCriteria,
-  createKeywordCriteria,
+  createAnyKeywordCriteria,
 };

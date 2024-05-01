@@ -16,7 +16,7 @@ import {
   toCollectionName,
   toFileName,
   createFreeTextCriteria,
-  createKeywordCriteria,
+  createAnyKeywordCriteria,
 } from './utils';
 import { renderMetadataXmp } from './template-helpers/metadata-file';
 
@@ -27,7 +27,7 @@ const rawFileContent = fs.readFileSync(
 
 const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
-const renderDefinitions = (definitions: Definition[]) => {
+const renderDefinitionsAsCollections = (definitions: Definition[]) => {
   definitions.forEach((definition) => {
     fs.writeFileSync(
       path.join(
@@ -79,7 +79,7 @@ const createThemes = (themes: BootConfig['collections']['themes']) => {
       prefix: 'theme',
       combineType: 'intersect',
       config: {
-        [themeName]: createKeywordCriteria(themeName),
+        [themeName]: createAnyKeywordCriteria(themeName),
         nonRejected: {
           criteria: 'pick',
           operation: '!=',
@@ -163,7 +163,7 @@ const addKeywordSets = (themes: Theme[]) => {
   });
 };
 
-const createOutputDefinitions = (definitions: Definition[]): Definition[] =>
+const createOutputDefinitions = (definitions: Definition[]) =>
   definitions.map((definition) => ({
     ...definition,
     name: definition.name,
@@ -206,11 +206,12 @@ const outputDefinitions = createOutputDefinitions([
   ...themesDefinitions,
   ...remainingDefinitions.filter(
     (definition) =>
+      // phase and camera should not include output criteria
       definition.prefix !== 'phase' && definition.prefix !== 'camera'
   ),
 ]);
 
-renderDefinitions([
+renderDefinitionsAsCollections([
   ...themesDefinitions,
   ...remainingDefinitions,
   ...outputDefinitions,
