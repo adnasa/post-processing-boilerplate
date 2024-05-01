@@ -4,13 +4,12 @@
   "main": "src/index.ts",
   "description": "",
   "scripts": {
-    "c": "yarn changeset",
     "format:js": "npx prettier --write '**/*.{ts,js}'",
     "format:md": "npx prettier --write --parser markdown '**/*.md'",
     "format:yaml": "npx prettier --write --parser yaml '**/*.{yml,yaml}'",
     "format": "yarn format:md && yarn format:yaml && yarn format:js",
     "lint": "eslint src/* --ext .ts --fix",
-    "start": "./scripts/cleanup.sh && ts-node src/index.ts"
+    "build": "./scripts/cleanup.sh && ts-node src/index.ts"
   },
   "author": "Adnan Asani",
   "license": "MIT",
