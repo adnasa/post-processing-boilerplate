@@ -157,7 +157,7 @@ collections:
 
     # PHASES
     - name: review required
-      prefix: 'phase'
+      prefix: phase
       combineType: intersect
       config:
         pick:
@@ -170,9 +170,13 @@ collections:
           value: 1
 
     - name: export ready
-      prefix: 'phase'
+      prefix: phase
       combineType: intersect
       config:
+        pick:
+          criteria: pick
+          operation: '!='
+          value: -1
         rating:
           criteria: rating
           operation: '>='
@@ -183,7 +187,7 @@ collections:
           value: 3
 
     - name: unmarked
-      prefix: 'phase'
+      prefix: phase
       combineType: intersect
       config:
         pick:
@@ -192,7 +196,7 @@ collections:
           value: 0
 
     - name: marked for deletion
-      prefix: 'phase'
+      prefix: phase
       combineType: intersect
       config:
         pick:
@@ -201,7 +205,7 @@ collections:
           value: -1
 
     - name: WIP
-      prefix: 'phase'
+      prefix: phase
       combineType: intersect
       config:
         pick:
