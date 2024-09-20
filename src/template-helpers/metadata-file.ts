@@ -1,3 +1,4 @@
+import { stripIndents } from 'common-tags';
 import { v4 as uuid } from 'uuid';
 
 const renderMetadataXmp = (metadata: string) => {
@@ -19,4 +20,18 @@ const renderMetadataXmp = (metadata: string) => {
   `;
 };
 
-export { renderMetadataXmp };
+const renderBridgeKeywords = (keywords: string[]) => {
+  const appliedKeywords = [...keywords]
+    .sort()
+    .map((keyword) => `<item name="${keyword}" />`)
+    .join('\n');
+
+  return stripIndents`
+    <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+    <keywords version="2">
+      ${appliedKeywords}
+    </keywords>
+  `;
+};
+
+export { renderMetadataXmp, renderBridgeKeywords };

@@ -18,7 +18,10 @@ import {
   createFreeTextCriteria,
   createAnyKeywordCriteria,
 } from './utils';
-import { renderMetadataXmp } from './template-helpers/metadata-file';
+import {
+  renderMetadataXmp,
+  renderBridgeKeywords,
+} from './template-helpers/metadata-file';
 
 const rawFileContent = fs.readFileSync(
   path.join(__dirname, '../boot.config.yml'),
@@ -197,6 +200,23 @@ const addMetadataTemplates = (themes: Theme[]) => {
   });
 };
 
+const addBridgeKeywords = (themes: Theme[]) => {
+  const textOnly = themes.map((theme) => theme.name);
+  const rendered = renderBridgeKeywords(textOnly);
+
+  fs.writeFileSync(
+    path.join(__dirname, `../output/Adobe Bridge Keywords.xml`),
+    rendered,
+    'utf-8'
+  );
+
+  fs.writeFileSync(
+    path.join(__dirname, `../output/Adobe Bridge Keywords.txt`),
+    textOnly.join('\n'),
+    'utf-8'
+  );
+};
+
 const [themesDefinitions, remainingDefinitions] = [
   createThemes(parsedFileContent.collections.themes),
   createDefinitions(parsedFileContent.collections.definitions),
@@ -219,3 +239,4 @@ renderDefinitionsAsCollections([
 
 addKeywordSets(parsedFileContent.collections.themes ?? []);
 addMetadataTemplates(parsedFileContent.collections.themes ?? []);
+addBridgeKeywords(parsedFileContent.collections.themes ?? []);
