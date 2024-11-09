@@ -9,7 +9,7 @@ import {
   Definition,
   FilterConfig,
   KeywordSetConfig,
-  Theme,
+  Categorized,
 } from './types/boot-config';
 import {
   lrsToCollectionString,
@@ -78,12 +78,15 @@ const authorCollection = (definition: Definition) => {
   `;
 };
 
-const createThemes = (themes: BootConfig['collections']['themes']) => {
+const createCategories = (
+  themes: BootConfig['collections']['themes'],
+  overridePrefix: string
+) => {
   const themeDefinitions = zipToObject(
     themes?.map((theme) => theme.name) ?? [],
     (themeName: string) => ({
       name: themeName,
-      prefix: 'theme',
+      prefix: overridePrefix ?? 'theme',
       combineType: 'intersect',
       config: {
         [themeName]: createAnyKeywordCriteria(themeName),
@@ -132,7 +135,7 @@ const createDefinitions = (definitions?: Definition[]) => {
   return mappedDefinition;
 };
 
-const addKeywordSets = (themes: Theme[]) => {
+const addKeywordSets = (themes: Categorized[]) => {
   const groupedByCategory = mapValues(
     group(themes, (theme) => theme.category),
     (value) => cluster(value?.map((value) => value.name) ?? [], 9)
@@ -194,7 +197,7 @@ const createOutputDefinitions = (definitions: Definition[]) =>
     },
   }));
 
-const addMetadataTemplates = (themes: Theme[]) => {
+const addMetadataTemplates = (themes: Categorized[]) => {
   fs.mkdirSync(path.join(__dirname, '../output/Metadata Templates'), {
     recursive: true,
   });
@@ -211,7 +214,7 @@ const addMetadataTemplates = (themes: Theme[]) => {
   });
 };
 
-const addBridgeKeywords = (themes: Theme[]) => {
+const addBridgeKeywords = (themes: Categorized[]) => {
   const textOnly = themes.map((theme) => theme.name);
   const rendered = renderBridgeKeywords(textOnly);
 
@@ -228,13 +231,15 @@ const addBridgeKeywords = (themes: Theme[]) => {
   );
 };
 
-const [themesDefinitions, remainingDefinitions] = [
-  createThemes(parsedFileContent.collections.themes),
+const [themesDefinitions, agnosticDefinitions, remainingDefinitions] = [
+  createCategories(parsedFileContent.collections.themes, 'theme'),
+  createCategories(parsedFileContent.collections.agnostic, 'agnostic'),
   createDefinitions(parsedFileContent.collections.definitions),
 ];
 
 const outputDefinitions = createOutputDefinitions([
   ...themesDefinitions,
+  ...agnosticDefinitions,
   ...remainingDefinitions.filter(
     (definition) =>
       // phase and camera should not include output criteria
@@ -245,9 +250,11 @@ const outputDefinitions = createOutputDefinitions([
 renderDefinitionsAsCollections([
   ...themesDefinitions,
   ...remainingDefinitions,
+  ...agnosticDefinitions,
   ...outputDefinitions,
 ]);
 
 addKeywordSets(parsedFileContent.collections.themes ?? []);
+addKeywordSets(parsedFileContent.collections.agnostic ?? []);
 addMetadataTemplates(parsedFileContent.collections.themes ?? []);
 addBridgeKeywords(parsedFileContent.collections.themes ?? []);

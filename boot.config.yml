@@ -2,6 +2,14 @@ namespace: EXAMPLE
 Author: EXAMPLE
 
 collections:
+  agnostic: 
+    - name: ISO_COATED_V2
+      category: Conversions
+    - name: ISO_COATED_V2-Converted
+      category: Conversions
+    - name: ISO_COATED_V2-Converted-Cropped
+      category: Conversions
+
   themes:
     # whatever stored as keywords on the image's metadata
     - name: FL20
