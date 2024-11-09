@@ -112,7 +112,9 @@ You import them into Lightroom, so you transform your **Smart Collections**.
 #### Example
 
 **Before**
+
 ![adobe-lightroom-smart-collections-before.png](./assets/adobe-lightroom-smart-collections-before.png)
 
 **After**
+
 ![adobe-lightroom-smart-collections-after.png](./assets/adobe-lightroom-smart-collections-after.png)
