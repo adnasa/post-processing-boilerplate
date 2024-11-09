@@ -60,7 +60,8 @@ const authorCollection = (definition: Definition) => {
     definition.type === 'KeywordSet'
       ? {
           values: ((definition.config as KeywordSetConfig) ?? []).map(
-            (value, iteration) => `shortcut${iteration + 1}title="${value}"\n`
+            (value, iteration) =>
+              ['shortcut', iteration + 1, `title="${value}"`, '\n'].join('')
           ),
         }
       : mapValues(definition.config as FilterConfig, (config) =>
