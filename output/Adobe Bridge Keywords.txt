@@ -23,6 +23,9 @@ Food
 Hike
 Historical
 Isolation
+ISO_COATED_V2
+ISO_COATED_V2-Converted
+ISO_COATED_V2-Converted-Cropped
 Kitchen
 MultiColors
 Night

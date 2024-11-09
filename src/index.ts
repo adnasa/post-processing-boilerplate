@@ -2,7 +2,15 @@ import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
 import { commaLists } from 'common-tags';
-import { group, mapValues, zipToObject, cluster, listify, sort } from 'radash';
+import {
+  group,
+  mapValues,
+  zipToObject,
+  cluster,
+  listify,
+  sort,
+  merge,
+} from 'radash';
 import * as yaml from 'yaml';
 import {
   BootConfig,
@@ -259,7 +267,11 @@ renderDefinitionsAsCollections([
   ...outputDefinitions,
 ]);
 
-addKeywordSets(parsedFileContent.collections.themes ?? []);
-addKeywordSets(parsedFileContent.collections.agnostic ?? []);
-addMetadataTemplates(parsedFileContent.collections.themes ?? []);
-addBridgeKeywords(parsedFileContent.collections.themes ?? []);
+const mergedCategorizedItems = [
+  ...(parsedFileContent.collections.themes ?? []),
+  ...(parsedFileContent.collections.agnostic ?? []),
+];
+
+addKeywordSets(mergedCategorizedItems);
+addMetadataTemplates(mergedCategorizedItems);
+addBridgeKeywords(mergedCategorizedItems);
