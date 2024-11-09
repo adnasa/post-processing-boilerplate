@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn
 
 # project
+boot.config.yml
 # /output/
 /.yarn/
 .DS_Store

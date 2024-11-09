@@ -2,15 +2,7 @@ import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
 import { commaLists } from 'common-tags';
-import {
-  group,
-  mapValues,
-  zipToObject,
-  cluster,
-  listify,
-  sort,
-  merge,
-} from 'radash';
+import { group, mapValues, zipToObject, cluster, listify, sort } from 'radash';
 import * as yaml from 'yaml';
 import {
   BootConfig,
