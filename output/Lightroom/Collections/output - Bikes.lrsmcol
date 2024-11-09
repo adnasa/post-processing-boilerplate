@@ -1,0 +1,26 @@
+s = {
+  id = "79516c22-db7a-423e-bc8a-20bf87f2a9ec",
+  internalName = "output - Bikes",
+  title = "output - Bikes",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Bikes",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

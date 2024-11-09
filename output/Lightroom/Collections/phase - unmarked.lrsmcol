@@ -1,0 +1,15 @@
+s = {
+  id = "7bc252c0-616d-48c0-aee4-cd7713265c27",
+  internalName = "phase - unmarked",
+  title = "phase - unmarked",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "pick",
+      operation = "==",
+      value = 0
+    }
+  },
+  version = 0,
+}

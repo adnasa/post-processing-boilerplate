@@ -1,0 +1,21 @@
+s = {
+  id = "afb13f3f-af91-4616-8e30-4ab0fcf99e66",
+  internalName = "lens - Canon FD 50mm F1.8",
+  title = "lens - Canon FD 50mm F1.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Canon FD 50mm F1.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

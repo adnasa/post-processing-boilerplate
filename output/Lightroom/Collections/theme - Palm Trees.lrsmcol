@@ -1,0 +1,21 @@
+s = {
+  id = "e7640b80-715d-42fe-8d15-177990282a27",
+  internalName = "theme - Palm Trees",
+  title = "theme - Palm Trees",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Palm Trees",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

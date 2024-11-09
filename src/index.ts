@@ -15,7 +15,7 @@ import {
   lrsToCollectionString,
   toCollectionName,
   toFileName,
-  createFreeTextCriteria,
+  createStrictFreeTextCriteria,
   createAnyKeywordCriteria,
 } from './utils';
 import {
@@ -89,7 +89,9 @@ const createCategories = (
       prefix: overridePrefix ?? 'theme',
       combineType: 'intersect',
       config: {
-        [themeName]: createAnyKeywordCriteria(themeName),
+        [themeName]: createAnyKeywordCriteria({
+          value: themeName,
+        }),
         nonRejected: {
           criteria: 'pick',
           operation: '!=',
@@ -111,7 +113,7 @@ const createDefinitions = (definitions?: Definition[]) => {
           prefix: definition.prefix,
           combineType: definition.combineType,
           config: {
-            [definition.name]: createFreeTextCriteria(
+            [definition.name]: createStrictFreeTextCriteria(
               (definition.config as FilterConfig).lens?.value as string,
               'lens'
             ),

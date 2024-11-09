@@ -1,0 +1,26 @@
+s = {
+  id = "f3610b0f-36c7-4768-9ad6-77b0fa2f4092",
+  internalName = "output - Auto-Beroflex 28mm F2.8",
+  title = "output - Auto-Beroflex 28mm F2.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Auto-Beroflex 28mm F2.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,26 @@
+s = {
+  id = "aa4a82b8-a6be-4f40-b3d7-87bd74768cf0",
+  internalName = "output - Isolation",
+  title = "output - Isolation",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Isolation",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

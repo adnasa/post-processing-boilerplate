@@ -1,0 +1,26 @@
+s = {
+  id = "98d2164a-90e3-4311-8d4c-9e22f03e409b",
+  internalName = "output - Kitchen",
+  title = "output - Kitchen",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Kitchen",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

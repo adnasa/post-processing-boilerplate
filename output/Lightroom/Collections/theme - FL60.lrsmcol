@@ -1,0 +1,21 @@
+s = {
+  id = "25b703c9-1d20-4ead-b08e-91b9546a750b",
+  internalName = "theme - FL60",
+  title = "theme - FL60",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL60",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

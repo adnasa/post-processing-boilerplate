@@ -1,0 +1,26 @@
+s = {
+  id = "1e723c99-7033-4c06-b8f9-c1fe5b4f0f29",
+  internalName = "output - Cyberpunk",
+  title = "output - Cyberpunk",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Cyberpunk",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

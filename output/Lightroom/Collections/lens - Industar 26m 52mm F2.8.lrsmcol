@@ -1,0 +1,21 @@
+s = {
+  id = "19b56448-8fe4-4555-9271-22f3d90ae24e",
+  internalName = "lens - Industar 26m 52mm F2.8",
+  title = "lens - Industar 26m 52mm F2.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Industar 26m 52mm F2.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

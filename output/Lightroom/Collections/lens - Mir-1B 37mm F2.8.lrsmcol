@@ -1,0 +1,21 @@
+s = {
+  id = "322076bf-2ee1-419c-9561-7614ed73bfa2",
+  internalName = "lens - Mir-1B 37mm F2.8",
+  title = "lens - Mir-1B 37mm F2.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Mir-1B 37mm F2.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,21 @@
+s = {
+  id = "f5278a57-b6e1-4f8c-b421-5c228010ab37",
+  internalName = "theme - Coffee",
+  title = "theme - Coffee",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Coffee",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

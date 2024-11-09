@@ -1,0 +1,21 @@
+s = {
+  id = "e81d1d83-55ba-4468-9b26-8d4b9b812adb",
+  internalName = "theme - View",
+  title = "theme - View",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "View",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

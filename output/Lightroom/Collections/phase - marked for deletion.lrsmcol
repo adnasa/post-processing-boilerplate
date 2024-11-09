@@ -1,0 +1,15 @@
+s = {
+  id = "0ebbc9ba-f132-4262-ad43-9e89adbcfebd",
+  internalName = "phase - marked for deletion",
+  title = "phase - marked for deletion",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "pick",
+      operation = "==",
+      value = -1
+    }
+  },
+  version = 0,
+}

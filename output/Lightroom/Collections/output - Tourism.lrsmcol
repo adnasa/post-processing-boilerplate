@@ -1,0 +1,26 @@
+s = {
+  id = "2da2a400-652b-4017-ae4b-50534b53c890",
+  internalName = "output - Tourism",
+  title = "output - Tourism",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Tourism",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

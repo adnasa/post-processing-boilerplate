@@ -1,0 +1,21 @@
+s = {
+  id = "949179ff-8d25-4965-8723-32387c0d8cac",
+  internalName = "theme - FL35",
+  title = "theme - FL35",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL35",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

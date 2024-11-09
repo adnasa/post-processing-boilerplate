@@ -1,0 +1,26 @@
+s = {
+  id = "8dab176a-8162-43bb-b291-3a9864372a7f",
+  internalName = "output - Sunrise",
+  title = "output - Sunrise",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Sunrise",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

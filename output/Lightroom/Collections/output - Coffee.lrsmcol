@@ -1,0 +1,26 @@
+s = {
+  id = "84d39202-4482-4cb1-8b51-669c8a2ffc0a",
+  internalName = "output - Coffee",
+  title = "output - Coffee",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Coffee",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

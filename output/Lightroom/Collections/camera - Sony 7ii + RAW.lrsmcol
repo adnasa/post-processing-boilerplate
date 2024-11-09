@@ -1,0 +1,20 @@
+s = {
+  id = "25f69919-2372-4f3e-97bc-3238acec019d",
+  internalName = "camera - Sony 7ii + RAW",
+  title = "camera - Sony 7ii + RAW",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "camera",
+      operation = "any",
+      value = "Sony ILCE-7M2"
+    },
+    {
+      criteria = "fileFormat",
+      operation = "==",
+      value = "RAW"
+    }
+  },
+  version = 0,
+}

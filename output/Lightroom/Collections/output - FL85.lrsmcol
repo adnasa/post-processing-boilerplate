@@ -1,0 +1,26 @@
+s = {
+  id = "fe5cda37-a6d3-4ea1-9dc8-adac56bdd57d",
+  internalName = "output - FL85",
+  title = "output - FL85",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL85",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

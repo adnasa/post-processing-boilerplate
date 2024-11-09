@@ -1,0 +1,15 @@
+s = {
+    id = "216c8f63-5513-47ae-884c-03994ea0848c",
+    internalName = "Focal Length Standard 1",
+    title = "Focal Length Standard 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="FL42"
+,shortcut2title="FL45"
+,shortcut3title="FL50"
+,shortcut4title="FL58"
+
+    },
+    version = 0,
+  }

@@ -1,0 +1,26 @@
+s = {
+  id = "061c4f7a-0133-4e75-a478-7ebd47864f23",
+  internalName = "output - Series",
+  title = "output - Series",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Series",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

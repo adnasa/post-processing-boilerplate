@@ -1,0 +1,26 @@
+s = {
+  id = "c645bbfe-1cd0-4497-ac74-c9013908813b",
+  internalName = "output - FL75",
+  title = "output - FL75",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL75",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

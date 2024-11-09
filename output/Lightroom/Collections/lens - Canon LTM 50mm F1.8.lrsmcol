@@ -1,0 +1,21 @@
+s = {
+  id = "b1890a17-081a-4821-9692-d68b751fe189",
+  internalName = "lens - Canon LTM 50mm F1.8",
+  title = "lens - Canon LTM 50mm F1.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Canon LTM 50mm F1.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

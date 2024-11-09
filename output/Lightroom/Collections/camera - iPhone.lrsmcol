@@ -1,0 +1,15 @@
+s = {
+  id = "b89926e5-49b0-4dd5-a2e6-756fd6f628f9",
+  internalName = "camera - iPhone",
+  title = "camera - iPhone",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "camera",
+      operation = "any",
+      value = "iphone"
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,21 @@
+s = {
+  id = "ddf2142f-8699-4686-a7f8-7d39e8e2c7b6",
+  internalName = "theme - Panning",
+  title = "theme - Panning",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Panning",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

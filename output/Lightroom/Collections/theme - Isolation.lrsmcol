@@ -1,0 +1,21 @@
+s = {
+  id = "70ad96eb-b927-41b6-83ff-6a2e53117332",
+  internalName = "theme - Isolation",
+  title = "theme - Isolation",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Isolation",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

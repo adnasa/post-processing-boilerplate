@@ -19,24 +19,30 @@ const toCollectionName = (definition: Definition) => {
 
 const toFileName = (definition: Definition) => toCollectionName(definition);
 
-const createFreeTextCriteria = <T>(value: T, key = 'keywords') => ({
-  criteria: key,
-  operation: '==',
-  value: value,
+type CriteriaParams = {
+  criteria?: string;
+  operation?: string;
+  value: any;
+};
+
+const createAnyKeywordCriteria = (params: CriteriaParams) => ({
+  criteria: params.criteria ?? 'keywords',
+  operation: params.operation ?? 'any',
+  value: params.value,
   value2: '',
 });
 
-const createAnyKeywordCriteria = (value: string) => ({
-  criteria: 'keywords',
-  operation: 'any',
-  value: value,
-  value2: '',
-});
+const createStrictFreeTextCriteria = <T>(value: T, key = 'keywords') =>
+  createAnyKeywordCriteria({
+    criteria: key,
+    operation: '==',
+    value,
+  });
 
 export {
   lrsToCollectionString,
   toCollectionName,
   toFileName,
-  createFreeTextCriteria,
+  createStrictFreeTextCriteria,
   createAnyKeywordCriteria,
 };

@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn
 
 # project
-/output/
+# /output/
 /.yarn/
 .DS_Store
 

@@ -1,0 +1,21 @@
+s = {
+  id = "c20fac34-be78-4fb4-992d-974fecf2f965",
+  internalName = "theme - Food",
+  title = "theme - Food",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Food",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

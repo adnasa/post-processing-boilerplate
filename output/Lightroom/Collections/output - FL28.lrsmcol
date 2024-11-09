@@ -1,0 +1,26 @@
+s = {
+  id = "5cb1191f-e928-4e76-ad8a-93b8316a975e",
+  internalName = "output - FL28",
+  title = "output - FL28",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL28",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

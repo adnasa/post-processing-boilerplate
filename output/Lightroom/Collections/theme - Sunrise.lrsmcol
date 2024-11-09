@@ -1,0 +1,21 @@
+s = {
+  id = "bf212e97-1338-43d8-ab4b-df704688cc34",
+  internalName = "theme - Sunrise",
+  title = "theme - Sunrise",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Sunrise",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

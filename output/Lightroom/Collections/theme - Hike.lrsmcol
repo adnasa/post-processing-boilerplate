@@ -1,0 +1,21 @@
+s = {
+  id = "1c96420c-4e2f-4cd3-9478-ae7a891420aa",
+  internalName = "theme - Hike",
+  title = "theme - Hike",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Hike",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

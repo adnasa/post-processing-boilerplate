@@ -1,0 +1,12 @@
+s = {
+  id = "7efa2410-7a47-434d-b299-d4364564f8ee",
+  internalName = "Camera Mode 1",
+  title = "Camera Mode 1",
+  type = "KeywordSet",
+  value = {
+    
+    shortcut1title="CameraMode-APSC"
+
+  },
+  version = 0,
+}

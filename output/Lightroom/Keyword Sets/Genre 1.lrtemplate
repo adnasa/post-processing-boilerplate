@@ -1,0 +1,20 @@
+s = {
+    id = "d8922ebf-c6d1-479c-9037-329986b55410",
+    internalName = "Genre 1",
+    title = "Genre 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="Collectables"
+,shortcut2title="Historical"
+,shortcut3title="Port"
+,shortcut4title="Series"
+,shortcut5title="Blur"
+,shortcut6title="Cinemoments"
+,shortcut7title="Cyberpunk"
+,shortcut8title="Isolation"
+,shortcut9title="MultiColors"
+
+    },
+    version = 0,
+  }

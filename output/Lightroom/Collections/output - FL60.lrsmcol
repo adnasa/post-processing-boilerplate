@@ -1,0 +1,26 @@
+s = {
+  id = "74f622b9-b7a8-4d47-bcdb-af208dacc6dc",
+  internalName = "output - FL60",
+  title = "output - FL60",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL60",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

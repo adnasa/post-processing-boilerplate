@@ -1,0 +1,21 @@
+s = {
+  id = "d9fe4883-6eb2-4160-8729-5f2ff1e42993",
+  internalName = "theme - Tourism",
+  title = "theme - Tourism",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Tourism",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

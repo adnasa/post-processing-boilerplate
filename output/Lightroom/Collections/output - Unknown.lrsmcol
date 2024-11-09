@@ -1,0 +1,26 @@
+s = {
+  id = "af83c10e-d8dc-4a46-a466-9bf656e19264",
+  internalName = "output - Unknown",
+  title = "output - Unknown",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Unknown",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

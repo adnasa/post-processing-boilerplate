@@ -1,0 +1,21 @@
+s = {
+  id = "b1c7b3d4-65f4-4d96-a98f-a587c312b16a",
+  internalName = "theme - Buildings",
+  title = "theme - Buildings",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Buildings",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

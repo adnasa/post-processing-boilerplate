@@ -1,0 +1,21 @@
+s = {
+  id = "a1ba3ed0-c559-4a52-a3a9-87cce8939fa7",
+  internalName = "theme - FL50",
+  title = "theme - FL50",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL50",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,26 @@
+s = {
+  id = "959455c6-7226-4e92-a061-e36116e0c443",
+  internalName = "output - Historical",
+  title = "output - Historical",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Historical",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

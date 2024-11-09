@@ -1,0 +1,15 @@
+s = {
+    id = "8630a8fd-2ed5-46a0-9381-d46a2c5b4851",
+    internalName = "Focal Length Wide 1",
+    title = "Focal Length Wide 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="FL20"
+,shortcut2title="FL28"
+,shortcut3title="FL35"
+,shortcut4title="FL37"
+
+    },
+    version = 0,
+  }

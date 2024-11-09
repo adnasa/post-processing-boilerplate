@@ -1,0 +1,21 @@
+s = {
+  id = "b4730006-680c-4e38-bdf9-0bbcadad30a8",
+  internalName = "theme - Historical",
+  title = "theme - Historical",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Historical",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

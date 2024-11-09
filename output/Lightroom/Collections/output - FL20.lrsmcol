@@ -1,0 +1,26 @@
+s = {
+  id = "431b990b-6ed3-4d4a-b38a-54ec15441913",
+  internalName = "output - FL20",
+  title = "output - FL20",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL20",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

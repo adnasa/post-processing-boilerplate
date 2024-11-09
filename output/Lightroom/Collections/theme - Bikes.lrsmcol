@@ -1,0 +1,21 @@
+s = {
+  id = "a40dc72e-1072-48aa-aeb3-2a87a4585991",
+  internalName = "theme - Bikes",
+  title = "theme - Bikes",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Bikes",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

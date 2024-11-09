@@ -1,0 +1,21 @@
+s = {
+  id = "6b94ca3c-d9cc-4e3c-a980-11da12dd3939",
+  internalName = "theme - Sunset",
+  title = "theme - Sunset",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Sunset",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,26 @@
+s = {
+  id = "b3e622ae-d1f1-49c9-a4e2-bc1027b02a3e",
+  internalName = "output - Buildings",
+  title = "output - Buildings",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Buildings",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

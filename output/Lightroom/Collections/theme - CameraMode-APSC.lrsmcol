@@ -1,0 +1,21 @@
+s = {
+  id = "ef2382bf-c145-405f-803d-b52fc22a70fb",
+  internalName = "theme - CameraMode-APSC",
+  title = "theme - CameraMode-APSC",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "CameraMode-APSC",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,15 @@
+s = {
+    id = "10ac9f2e-ae9c-4e41-9434-35614f5e2f83",
+    internalName = "Focal Length Tele 1",
+    title = "Focal Length Tele 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="FL60"
+,shortcut2title="FL67"
+,shortcut3title="FL75"
+,shortcut4title="FL85"
+
+    },
+    version = 0,
+  }

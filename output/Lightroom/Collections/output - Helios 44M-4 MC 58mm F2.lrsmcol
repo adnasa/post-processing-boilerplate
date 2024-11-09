@@ -1,0 +1,26 @@
+s = {
+  id = "bef875c4-c9d9-47be-9cb8-ac1aade3ffaf",
+  internalName = "output - Helios 44M-4 MC 58mm F2",
+  title = "output - Helios 44M-4 MC 58mm F2",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Helios 44M-4 MC 58mm F2",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

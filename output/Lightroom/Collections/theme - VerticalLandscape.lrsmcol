@@ -1,0 +1,21 @@
+s = {
+  id = "ba331aa8-9a52-4dd7-b6a5-2cc24df2ca8b",
+  internalName = "theme - VerticalLandscape",
+  title = "theme - VerticalLandscape",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "VerticalLandscape",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

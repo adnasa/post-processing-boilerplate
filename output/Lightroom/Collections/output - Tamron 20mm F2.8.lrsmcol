@@ -1,0 +1,26 @@
+s = {
+  id = "752f082a-51d8-4962-9147-57e4c7721294",
+  internalName = "output - Tamron 20mm F2.8",
+  title = "output - Tamron 20mm F2.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "E 20mm F2.8 F050",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

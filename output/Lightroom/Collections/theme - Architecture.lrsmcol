@@ -1,0 +1,21 @@
+s = {
+  id = "9d0f737e-da81-4a83-b510-d84e019a6f66",
+  internalName = "theme - Architecture",
+  title = "theme - Architecture",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Architecture",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

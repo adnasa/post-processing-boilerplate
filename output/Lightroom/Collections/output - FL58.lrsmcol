@@ -1,0 +1,26 @@
+s = {
+  id = "2e94e739-e70f-459f-b9d4-922f1c879dce",
+  internalName = "output - FL58",
+  title = "output - FL58",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL58",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

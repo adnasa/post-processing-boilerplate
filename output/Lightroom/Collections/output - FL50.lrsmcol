@@ -1,0 +1,26 @@
+s = {
+  id = "689ca55e-0abe-4e70-8482-ff8a431b366f",
+  internalName = "output - FL50",
+  title = "output - FL50",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL50",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

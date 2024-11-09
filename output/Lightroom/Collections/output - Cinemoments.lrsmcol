@@ -1,0 +1,26 @@
+s = {
+  id = "35c0fb67-928b-4dcc-8f07-241451b3a351",
+  internalName = "output - Cinemoments",
+  title = "output - Cinemoments",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Cinemoments",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

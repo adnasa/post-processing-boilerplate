@@ -1,0 +1,26 @@
+s = {
+  id = "84a801b3-ebfb-47bb-9321-080b94a144b7",
+  internalName = "output - VerticalLandscape",
+  title = "output - VerticalLandscape",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "VerticalLandscape",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

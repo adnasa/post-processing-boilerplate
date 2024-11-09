@@ -1,0 +1,26 @@
+s = {
+  id = "b626283d-bbc6-4c73-ab94-f0ecfab38410",
+  internalName = "output - Night",
+  title = "output - Night",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Night",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

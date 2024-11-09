@@ -1,0 +1,21 @@
+s = {
+  id = "1feee818-5baf-44c1-aec9-f7384e844af3",
+  internalName = "theme - FL67",
+  title = "theme - FL67",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL67",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}
