@@ -2,7 +2,7 @@ import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
 import { commaLists } from 'common-tags';
-import { group, mapValues, zipToObject, cluster, listify } from 'radash';
+import { group, mapValues, zipToObject, cluster, listify, sort } from 'radash';
 import * as yaml from 'yaml';
 import {
   BootConfig,
@@ -217,7 +217,10 @@ const addMetadataTemplates = (themes: Categorized[]) => {
 };
 
 const addBridgeKeywords = (themes: Categorized[]) => {
-  const textOnly = themes.map((theme) => theme.name);
+  const textOnly = sort(themes, (theme) => theme.name.charCodeAt(0), false).map(
+    (theme) => theme.name
+  );
+
   const rendered = renderBridgeKeywords(textOnly);
 
   fs.writeFileSync(

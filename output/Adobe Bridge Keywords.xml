@@ -2,12 +2,12 @@
 <keywords version="2">
 <item name="Architecture" />
 <item name="Bikes" />
-<item name="Blur" />
 <item name="Buildings" />
+<item name="Blur" />
 <item name="CameraMode-APSC" />
-<item name="Cinemoments" />
 <item name="Coffee" />
 <item name="Collectables" />
+<item name="Cinemoments" />
 <item name="Cyberpunk" />
 <item name="FL20" />
 <item name="FL28" />
@@ -29,16 +29,16 @@
 <item name="MultiColors" />
 <item name="Night" />
 <item name="Palm Trees" />
-<item name="Panning" />
 <item name="Port" />
-<item name="Series" />
-<item name="Street" />
+<item name="Panning" />
 <item name="Sunrise" />
 <item name="Sunset" />
+<item name="Series" />
+<item name="Street" />
 <item name="Tourism" />
-<item name="Unknown" />
 <item name="Urban" />
 <item name="Urban Landscape" />
+<item name="Unknown" />
 <item name="VerticalLandscape" />
 <item name="View" />
 </keywords>
