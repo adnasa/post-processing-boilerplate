@@ -2,7 +2,7 @@ namespace: EXAMPLE
 Author: EXAMPLE
 
 collections:
-  agnostic: 
+  agnostic:
     - name: ISO_COATED_V2
       category: Conversions
     - name: ISO_COATED_V2-Converted
@@ -67,14 +67,14 @@ collections:
       category: Urban
     - name: View
       category: Urban
-    
+
     - name: Bikes
       category: Motive
     - name: Buildings
       category: Motive
     - name: Palm Trees
       category: Motive
-    
+
     - name: Collectables
       category: Genre
     - name: Historical
