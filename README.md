@@ -75,8 +75,12 @@ Inspect the `/output` folder and have a look at the generated collections for Li
 
 ### `output/Adobe Bridge Keywords.txt`
 
+A list of reusable Adobe Bridge **Keywords**.
 The file is the importable **Keywords** for Adobe Bridge.
 To import this; Go to `Adobe -> Keywords Panel -> Import`.
+
+- Application: Adobe Bridge
+- Scope: Installation. By importing this, it will be part of your Adobe Bridge installation.
 
 ![adobe-bridge-keywords-panel-import.png](./assets/adobe-bridge-keywords-panel-import.png)
 
@@ -88,6 +92,10 @@ These files are intended for you to copy these over into your Adobe Bridge setti
 
 In MacOS; the placement of these templates can be `/Users/<THIS_IS_YOU>/Library/Application Support/Adobe/XMP`.
 
+- Application: Adobe Bridge
+- Scope: Installation. By importing this, it will be part of your Adobe Bridge installation.
+
+
 ### `output/Lightroom/Keyword Sets`
 
 This is a collection of reusable _Keyword Sets_ across your Lightroom Projects.
@@ -97,6 +105,9 @@ These files are intended for you to copy these over into your Adobe Lightroom se
 In MacOS; the placement of these templates can be `/Users/<THIS_IS_YOU>/Library/Application Support/Adobe/Lightroom`
 
 Once you've done this, you can expect your _Keyword Sets_ to display in the list of options of the **Keywording** panel of Lightroom.
+
+- Application: Adobe Lightroom
+- Scope: Installation. By importing this, it will be part of your Adobe Lightroom installation.
 
 ![adobe-lightroom-keywording-panel-outcome.png](./assets/adobe-lightroom-keywording-panel-outcome.png)
 
@@ -108,6 +119,9 @@ You import them into Lightroom, so you transform your **Smart Collections**.
 
 > [!info] Note that **Smart Collections** are **per project** in Lightroom.
 > When you kickstart a new Lightroom project, you import them again.
+
+- Application: Adobe Bridge
+- Scope: Project. By importing this, it will be part of your Adobe Lightroom project.
 
 #### Example
 
