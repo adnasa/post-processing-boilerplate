@@ -1,0 +1,14 @@
+s = {
+    id = "8029efa1-a3e8-4909-9059-a7e41ecdfbab",
+    internalName = "Conversions 1",
+    title = "Conversions 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="ISO_COATED_V2"
+,shortcut2title="ISO_COATED_V2-Converted"
+,shortcut3title="ISO_COATED_V2-Converted-Cropped"
+
+    },
+    version = 0,
+  }

@@ -1,0 +1,26 @@
+s = {
+  id = "d007c821-8271-49ca-960b-a46c1b2d7221",
+  internalName = "output - CameraMode-APSC",
+  title = "output - CameraMode-APSC",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "CameraMode-APSC",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

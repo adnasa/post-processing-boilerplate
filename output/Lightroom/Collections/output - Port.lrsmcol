@@ -1,0 +1,26 @@
+s = {
+  id = "e5ea908f-c511-4532-8643-bf1751d77a40",
+  internalName = "output - Port",
+  title = "output - Port",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Port",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

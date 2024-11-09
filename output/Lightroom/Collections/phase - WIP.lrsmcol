@@ -1,0 +1,20 @@
+s = {
+  id = "2610aaf4-bc66-42c6-8234-391d6cebe3bb",
+  internalName = "phase - WIP",
+  title = "phase - WIP",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "pick",
+      operation = "==",
+      value = 1
+    },
+    {
+      criteria = "labelColor",
+      operation = "==",
+      value = 4
+    }
+  },
+  version = 0,
+}

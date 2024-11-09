@@ -1,0 +1,21 @@
+s = {
+  id = "707b828c-53c2-4593-8bed-9bd61998bb97",
+  internalName = "theme - MultiColors",
+  title = "theme - MultiColors",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "MultiColors",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

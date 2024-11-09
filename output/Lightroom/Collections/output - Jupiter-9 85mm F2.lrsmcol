@@ -1,0 +1,26 @@
+s = {
+  id = "21c16174-e056-4384-9965-0d894f31ef0d",
+  internalName = "output - Jupiter-9 85mm F2",
+  title = "output - Jupiter-9 85mm F2",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Jupiter-9 85mm F2",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,25 @@
+s = {
+  id = "df1baac0-c003-4b23-bee0-0941fb070437",
+  internalName = "phase - export ready",
+  title = "phase - export ready",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "rating",
+      operation = ">=",
+      value = 3
+    },
+    {
+      criteria = "labelColor",
+      operation = "==",
+      value = 3
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,26 @@
+s = {
+  id = "455fd2b3-9e0a-4c48-83d3-b0804e553519",
+  internalName = "output - Street",
+  title = "output - Street",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Street",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

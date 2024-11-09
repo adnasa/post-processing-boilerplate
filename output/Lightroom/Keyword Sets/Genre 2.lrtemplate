@@ -1,0 +1,14 @@
+s = {
+    id = "ad07999e-7455-485f-85b6-1cbe858375a5",
+    internalName = "Genre 2",
+    title = "Genre 2",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="Panning"
+,shortcut2title="Street"
+,shortcut3title="Unknown"
+
+    },
+    version = 0,
+  }

@@ -1,0 +1,26 @@
+s = {
+  id = "0561b5ac-0c96-4a35-abe0-1e9373303e46",
+  internalName = "output - Urban Landscape",
+  title = "output - Urban Landscape",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Urban Landscape",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

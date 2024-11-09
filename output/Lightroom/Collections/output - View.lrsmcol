@@ -1,0 +1,26 @@
+s = {
+  id = "414ec755-e5d6-46ff-a89a-82b1d1e8ceaf",
+  internalName = "output - View",
+  title = "output - View",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "View",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

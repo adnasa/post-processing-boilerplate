@@ -1,0 +1,26 @@
+s = {
+  id = "565d50c3-04ba-4d2b-874a-2dbb0e846dfe",
+  internalName = "output - Canon FD 50mm F1.4",
+  title = "output - Canon FD 50mm F1.4",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Canon FD 50mm F1.4",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

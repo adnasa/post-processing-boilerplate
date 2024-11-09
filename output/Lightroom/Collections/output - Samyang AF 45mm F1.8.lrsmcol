@@ -1,0 +1,26 @@
+s = {
+  id = "a2870474-4bef-443b-b5d5-9db8bda99941",
+  internalName = "output - Samyang AF 45mm F1.8",
+  title = "output - Samyang AF 45mm F1.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "SAMYANG AF 45mm F1.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

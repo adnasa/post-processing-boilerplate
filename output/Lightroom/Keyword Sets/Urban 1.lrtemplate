@@ -1,0 +1,17 @@
+s = {
+    id = "990642e6-9cf1-470d-af1f-67fe06fbdb82",
+    internalName = "Urban 1",
+    title = "Urban 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="Architecture"
+,shortcut2title="Kitchen"
+,shortcut3title="Urban"
+,shortcut4title="Urban Landscape"
+,shortcut5title="VerticalLandscape"
+,shortcut6title="View"
+
+    },
+    version = 0,
+  }

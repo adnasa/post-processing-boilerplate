@@ -1,0 +1,21 @@
+s = {
+  id = "a6fb2f77-fed4-4ea0-b194-b4f739c83ccc",
+  internalName = "theme - Unknown",
+  title = "theme - Unknown",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Unknown",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,21 @@
+s = {
+  id = "6072674b-c422-4b08-b18e-b69a458fbad4",
+  internalName = "lens - Tamron 28-75mm F2.8",
+  title = "lens - Tamron 28-75mm F2.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "E 28-75mm F2.8-2.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

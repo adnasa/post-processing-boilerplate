@@ -1,0 +1,21 @@
+s = {
+  id = "7eea66fd-e696-492a-a51b-0bd87d432a3d",
+  internalName = "theme - FL58",
+  title = "theme - FL58",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL58",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

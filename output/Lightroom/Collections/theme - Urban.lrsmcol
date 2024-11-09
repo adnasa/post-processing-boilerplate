@@ -1,0 +1,21 @@
+s = {
+  id = "834bf435-d669-4fbe-a7a0-24b24b9780a5",
+  internalName = "theme - Urban",
+  title = "theme - Urban",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Urban",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

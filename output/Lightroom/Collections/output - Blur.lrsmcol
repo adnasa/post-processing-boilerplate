@@ -1,0 +1,26 @@
+s = {
+  id = "2e279407-c0d1-4c74-a9fe-ae1a6e9e01ee",
+  internalName = "output - Blur",
+  title = "output - Blur",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Blur",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

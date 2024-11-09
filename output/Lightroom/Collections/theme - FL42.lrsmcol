@@ -1,0 +1,21 @@
+s = {
+  id = "527c7576-526b-487a-9e06-f62b71e64c14",
+  internalName = "theme - FL42",
+  title = "theme - FL42",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL42",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

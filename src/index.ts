@@ -2,20 +2,20 @@ import fs from 'fs';
 import { v4 as uuid } from 'uuid';
 import path from 'path';
 import { commaLists } from 'common-tags';
-import { group, mapValues, zipToObject, cluster, listify } from 'radash';
+import { group, mapValues, zipToObject, cluster, listify, sort } from 'radash';
 import * as yaml from 'yaml';
 import {
   BootConfig,
   Definition,
   FilterConfig,
   KeywordSetConfig,
-  Theme,
+  Categorized,
 } from './types/boot-config';
 import {
   lrsToCollectionString,
   toCollectionName,
   toFileName,
-  createFreeTextCriteria,
+  createStrictFreeTextCriteria,
   createAnyKeywordCriteria,
 } from './utils';
 import {
@@ -31,6 +31,10 @@ const rawFileContent = fs.readFileSync(
 const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
 const renderDefinitionsAsCollections = (definitions: Definition[]) => {
+  fs.mkdirSync(path.join(__dirname, '../output/Lightroom/Collections'), {
+    recursive: true,
+  });
+
   definitions.forEach((definition) => {
     fs.writeFileSync(
       path.join(
@@ -48,7 +52,8 @@ const authorCollection = (definition: Definition) => {
     definition.type === 'KeywordSet'
       ? {
           values: ((definition.config as KeywordSetConfig) ?? []).map(
-            (value, iteration) => `shortcut${iteration + 1}title="${value}"\n`
+            (value, iteration) =>
+              ['shortcut', iteration + 1, `title="${value}"`, '\n'].join('')
           ),
         }
       : mapValues(definition.config as FilterConfig, (config) =>
@@ -74,15 +79,20 @@ const authorCollection = (definition: Definition) => {
   `;
 };
 
-const createThemes = (themes: BootConfig['collections']['themes']) => {
+const createCategories = (
+  themes: BootConfig['collections']['themes'],
+  overridePrefix: string
+) => {
   const themeDefinitions = zipToObject(
     themes?.map((theme) => theme.name) ?? [],
     (themeName: string) => ({
       name: themeName,
-      prefix: 'theme',
+      prefix: overridePrefix ?? 'theme',
       combineType: 'intersect',
       config: {
-        [themeName]: createAnyKeywordCriteria(themeName),
+        [themeName]: createAnyKeywordCriteria({
+          value: themeName,
+        }),
         nonRejected: {
           criteria: 'pick',
           operation: '!=',
@@ -104,7 +114,7 @@ const createDefinitions = (definitions?: Definition[]) => {
           prefix: definition.prefix,
           combineType: definition.combineType,
           config: {
-            [definition.name]: createFreeTextCriteria(
+            [definition.name]: createStrictFreeTextCriteria(
               (definition.config as FilterConfig).lens?.value as string,
               'lens'
             ),
@@ -128,7 +138,7 @@ const createDefinitions = (definitions?: Definition[]) => {
   return mappedDefinition;
 };
 
-const addKeywordSets = (themes: Theme[]) => {
+const addKeywordSets = (themes: Categorized[]) => {
   const groupedByCategory = mapValues(
     group(themes, (theme) => theme.category),
     (value) => cluster(value?.map((value) => value.name) ?? [], 9)
@@ -144,6 +154,10 @@ const addKeywordSets = (themes: Theme[]) => {
     );
 
     return items;
+  });
+
+  fs.mkdirSync(path.join(__dirname, '../output/Lightroom/Keyword Sets'), {
+    recursive: true,
   });
 
   flattened.forEach((flatItem) => {
@@ -186,7 +200,10 @@ const createOutputDefinitions = (definitions: Definition[]) =>
     },
   }));
 
-const addMetadataTemplates = (themes: Theme[]) => {
+const addMetadataTemplates = (themes: Categorized[]) => {
+  fs.mkdirSync(path.join(__dirname, '../output/Metadata Templates'), {
+    recursive: true,
+  });
   themes.forEach((theme) => {
     const metadataOutput = renderMetadataXmp(theme.name);
     fs.writeFileSync(
@@ -200,8 +217,11 @@ const addMetadataTemplates = (themes: Theme[]) => {
   });
 };
 
-const addBridgeKeywords = (themes: Theme[]) => {
-  const textOnly = themes.map((theme) => theme.name);
+const addBridgeKeywords = (themes: Categorized[]) => {
+  const textOnly = sort(themes, (theme) => theme.name.charCodeAt(0), false).map(
+    (theme) => theme.name
+  );
+
   const rendered = renderBridgeKeywords(textOnly);
 
   fs.writeFileSync(
@@ -217,13 +237,15 @@ const addBridgeKeywords = (themes: Theme[]) => {
   );
 };
 
-const [themesDefinitions, remainingDefinitions] = [
-  createThemes(parsedFileContent.collections.themes),
+const [themesDefinitions, agnosticDefinitions, remainingDefinitions] = [
+  createCategories(parsedFileContent.collections.themes, 'theme'),
+  createCategories(parsedFileContent.collections.agnostic, 'agnostic'),
   createDefinitions(parsedFileContent.collections.definitions),
 ];
 
 const outputDefinitions = createOutputDefinitions([
   ...themesDefinitions,
+  ...agnosticDefinitions,
   ...remainingDefinitions.filter(
     (definition) =>
       // phase and camera should not include output criteria
@@ -234,9 +256,15 @@ const outputDefinitions = createOutputDefinitions([
 renderDefinitionsAsCollections([
   ...themesDefinitions,
   ...remainingDefinitions,
+  ...agnosticDefinitions,
   ...outputDefinitions,
 ]);
 
-addKeywordSets(parsedFileContent.collections.themes ?? []);
-addMetadataTemplates(parsedFileContent.collections.themes ?? []);
-addBridgeKeywords(parsedFileContent.collections.themes ?? []);
+const mergedCategorizedItems = [
+  ...(parsedFileContent.collections.themes ?? []),
+  ...(parsedFileContent.collections.agnostic ?? []),
+];
+
+addKeywordSets(mergedCategorizedItems);
+addMetadataTemplates(mergedCategorizedItems);
+addBridgeKeywords(mergedCategorizedItems);

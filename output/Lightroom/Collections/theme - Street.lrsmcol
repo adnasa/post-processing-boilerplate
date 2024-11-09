@@ -1,0 +1,21 @@
+s = {
+  id = "a77b5de9-06c1-4cf7-af8c-72a39553b8fa",
+  internalName = "theme - Street",
+  title = "theme - Street",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Street",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

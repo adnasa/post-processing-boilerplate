@@ -1,0 +1,21 @@
+s = {
+  id = "6676314c-f940-46a7-958f-b28863ea9b3a",
+  internalName = "lens - Jupiter-8 50mm F2",
+  title = "lens - Jupiter-8 50mm F2",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Jupiter-8 50mm F2",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

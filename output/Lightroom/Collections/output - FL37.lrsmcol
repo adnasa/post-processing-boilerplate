@@ -1,0 +1,26 @@
+s = {
+  id = "1fece8b3-1707-4305-9581-c4cfff36e886",
+  internalName = "output - FL37",
+  title = "output - FL37",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL37",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

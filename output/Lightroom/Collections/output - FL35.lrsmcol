@@ -1,0 +1,26 @@
+s = {
+  id = "6ff92af6-74f7-443c-819f-4fa861f2bdd9",
+  internalName = "output - FL35",
+  title = "output - FL35",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL35",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

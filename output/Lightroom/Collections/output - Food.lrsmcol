@@ -1,0 +1,26 @@
+s = {
+  id = "3b02b8ee-53fc-4bbd-b6f8-0510e4dd851a",
+  internalName = "output - Food",
+  title = "output - Food",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Food",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,21 @@
+s = {
+  id = "dc453874-2699-4487-a298-0ef24a888883",
+  internalName = "theme - Port",
+  title = "theme - Port",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Port",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,20 @@
+s = {
+  id = "9534e76d-848d-4b1e-b25e-53ced3de958c",
+  internalName = "phase - review required",
+  title = "phase - review required",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "pick",
+      operation = "==",
+      value = 0
+    },
+    {
+      criteria = "labelColor",
+      operation = "==",
+      value = 1
+    }
+  },
+  version = 0,
+}

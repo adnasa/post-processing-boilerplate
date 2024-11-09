@@ -1,0 +1,18 @@
+s = {
+    id = "0651da0d-09a0-45dd-a1ae-5aa269de02ec",
+    internalName = "Occasion 1",
+    title = "Occasion 1",
+    type = "KeywordSet",
+    value = {
+      
+      shortcut1title="Food"
+,shortcut2title="Hike"
+,shortcut3title="Sunrise"
+,shortcut4title="Sunset"
+,shortcut5title="Tourism"
+,shortcut6title="Coffee"
+,shortcut7title="Night"
+
+    },
+    version = 0,
+  }

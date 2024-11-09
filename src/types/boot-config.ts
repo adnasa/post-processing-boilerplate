@@ -16,7 +16,7 @@ type Definition = {
   config: FilterConfig | KeywordSetConfig;
 };
 
-type Theme = {
+type Categorized = {
   name: string;
   category: string;
 };
@@ -24,9 +24,10 @@ type Theme = {
 type BootConfig = {
   namespace: string;
   collections: {
-    themes?: Theme[];
+    themes?: Categorized[];
+    agnostic?: Categorized[];
     definitions?: Definition[];
   };
 };
 
-export { BootConfig, Definition, Theme, KeywordSetConfig, FilterConfig };
+export { BootConfig, Definition, Categorized, KeywordSetConfig, FilterConfig };

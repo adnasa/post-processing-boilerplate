@@ -1,0 +1,21 @@
+s = {
+  id = "07890d87-f9b2-470b-ac2c-bd1c97ff460e",
+  internalName = "lens - Canon FD 35mm F2.8",
+  title = "lens - Canon FD 35mm F2.8",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Canon FD 35mm F2.8",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

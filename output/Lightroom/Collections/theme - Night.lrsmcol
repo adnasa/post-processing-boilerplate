@@ -1,0 +1,21 @@
+s = {
+  id = "8ef20cf1-d7a2-4778-9a5d-b9138cb14bb5",
+  internalName = "theme - Night",
+  title = "theme - Night",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Night",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,21 @@
+s = {
+  id = "b52d1e40-5016-4d67-b14b-897310941c04",
+  internalName = "agnostic - ISO_COATED_V2-Converted-Cropped",
+  title = "agnostic - ISO_COATED_V2-Converted-Cropped",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "ISO_COATED_V2-Converted-Cropped",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

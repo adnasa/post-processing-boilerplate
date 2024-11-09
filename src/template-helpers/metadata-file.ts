@@ -1,4 +1,5 @@
 import { stripIndents } from 'common-tags';
+import { sort } from 'radash';
 import { v4 as uuid } from 'uuid';
 
 const renderMetadataXmp = (metadata: string) => {
@@ -21,8 +22,7 @@ const renderMetadataXmp = (metadata: string) => {
 };
 
 const renderBridgeKeywords = (keywords: string[]) => {
-  const appliedKeywords = [...keywords]
-    .sort()
+  const appliedKeywords = keywords
     .map((keyword) => `<item name="${keyword}" />`)
     .join('\n');
 

@@ -1,0 +1,21 @@
+s = {
+  id = "b3de3afa-a052-4048-99bc-737ccb30eebe",
+  internalName = "theme - FL85",
+  title = "theme - FL85",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL85",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

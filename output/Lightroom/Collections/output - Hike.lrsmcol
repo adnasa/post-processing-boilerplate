@@ -1,0 +1,26 @@
+s = {
+  id = "e41d6806-3d4d-46f7-b7e5-79a26fda01f1",
+  internalName = "output - Hike",
+  title = "output - Hike",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Hike",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

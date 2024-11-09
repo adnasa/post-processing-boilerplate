@@ -1,0 +1,26 @@
+s = {
+  id = "e9a079df-587e-4f77-95af-d85910b0110d",
+  internalName = "output - FL42",
+  title = "output - FL42",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "FL42",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,26 @@
+s = {
+  id = "936dd30a-9163-43c5-b403-68f227c3400d",
+  internalName = "output - Collectables",
+  title = "output - Collectables",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Collectables",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

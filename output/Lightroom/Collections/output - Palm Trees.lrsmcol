@@ -1,0 +1,26 @@
+s = {
+  id = "6b99c997-4cf7-44f5-82cd-55a33945daaf",
+  internalName = "output - Palm Trees",
+  title = "output - Palm Trees",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Palm Trees",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

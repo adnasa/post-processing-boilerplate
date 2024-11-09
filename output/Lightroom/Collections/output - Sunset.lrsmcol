@@ -1,0 +1,26 @@
+s = {
+  id = "95a01f38-d5fc-4b55-80de-ab14077b4e2f",
+  internalName = "output - Sunset",
+  title = "output - Sunset",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Sunset",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

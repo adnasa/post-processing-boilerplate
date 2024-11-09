@@ -1,0 +1,20 @@
+s = {
+  id = "06caaeba-f003-4170-be05-c692b942d94b",
+  internalName = "camera - Sony 7Cii + JPEG",
+  title = "camera - Sony 7Cii + JPEG",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "camera",
+      operation = "any",
+      value = "Sony ILCE-7CM2"
+    },
+    {
+      criteria = "fileFormat",
+      operation = "==",
+      value = "JPEG"
+    }
+  },
+  version = 0,
+}

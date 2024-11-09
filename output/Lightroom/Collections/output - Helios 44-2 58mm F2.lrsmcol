@@ -1,0 +1,26 @@
+s = {
+  id = "a887da5c-4179-4583-8d46-469e7ae82e73",
+  internalName = "output - Helios 44-2 58mm F2",
+  title = "output - Helios 44-2 58mm F2",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "lens",
+      operation = "==",
+      value = "Helios 44-2 58mm F2",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}

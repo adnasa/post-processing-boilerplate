@@ -1,0 +1,21 @@
+s = {
+  id = "e40c4ab8-eee7-416e-9139-a5e92c5cd301",
+  internalName = "theme - Cinemoments",
+  title = "theme - Cinemoments",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "Cinemoments",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    }
+  },
+  version = 0,
+}

@@ -1,0 +1,26 @@
+s = {
+  id = "277d17cf-255d-4c53-a17f-689d8310f9d8",
+  internalName = "output - ISO_COATED_V2-Converted",
+  title = "output - ISO_COATED_V2-Converted",
+  type = "LibrarySmartCollection",
+  value = {
+    combine = "intersect",
+    {
+      criteria = "keywords",
+      operation = "any",
+      value = "ISO_COATED_V2-Converted",
+      value2 = ""
+    },
+    {
+      criteria = "pick",
+      operation = "!=",
+      value = -1
+    },
+    {
+      criteria = "edit",
+      operation = "isTrue",
+      value = true
+    }
+  },
+  version = 0,
+}
