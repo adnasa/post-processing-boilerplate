@@ -31,6 +31,10 @@ const rawFileContent = fs.readFileSync(
 const parsedFileContent: BootConfig = yaml.parse(rawFileContent);
 
 const renderDefinitionsAsCollections = (definitions: Definition[]) => {
+  fs.mkdirSync(path.join(__dirname, '../output/Lightroom/Collections'), {
+    recursive: true,
+  });
+
   definitions.forEach((definition) => {
     fs.writeFileSync(
       path.join(
@@ -146,6 +150,10 @@ const addKeywordSets = (themes: Theme[]) => {
     return items;
   });
 
+  fs.mkdirSync(path.join(__dirname, '../output/Lightroom/Keyword Sets'), {
+    recursive: true,
+  });
+
   flattened.forEach((flatItem) => {
     Object.entries(flatItem).forEach(([name, values]) => {
       const keywordDefinition: Definition = {
@@ -187,6 +195,9 @@ const createOutputDefinitions = (definitions: Definition[]) =>
   }));
 
 const addMetadataTemplates = (themes: Theme[]) => {
+  fs.mkdirSync(path.join(__dirname, '../output/Metadata Templates'), {
+    recursive: true,
+  });
   themes.forEach((theme) => {
     const metadataOutput = renderMetadataXmp(theme.name);
     fs.writeFileSync(
