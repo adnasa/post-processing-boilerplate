@@ -1,12 +1,12 @@
 s = {
-    id = "73d706e8-0b40-4fe4-b394-093082d1cc3a",
+    id = "31a8e027-cfef-44d6-97d3-baa74889b9d9",
     internalName = "Motive 1",
     title = "Motive 1",
     type = "KeywordSet",
     value = {
       
-      shortcut1title="Bikes"
-,shortcut2title="Buildings"
+      shortcut1title="Sunrise"
+,shortcut2title="Sunset"
 ,shortcut3title="Palm Trees"
 
     },
